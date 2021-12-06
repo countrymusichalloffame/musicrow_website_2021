@@ -36,10 +36,8 @@
                         <?php
                             $prev = $i == 0 ? null : $locationData['cards'][$i - 1]['post_id'];
                             $next = $i == count($locationData['cards']) - 1 ? null :  $locationData['cards'][$i + 1]['post_id'];
-
-                            $theme = get_building_theme_color($card['type']);
                         ?>
-                        <button class="map__card button__no-button js-map-card theme--<?=$theme?>" 
+                        <button class="map__card button__no-button js-map-card theme--<?=$card['theme']?>" 
                             data-mb-coords="<?= $card['coords']; ?>"
                             data-mb-id="<?= $card['post_id']; ?>"
                             data-mb-sort="<?= $card['sort_location']; ?>"
