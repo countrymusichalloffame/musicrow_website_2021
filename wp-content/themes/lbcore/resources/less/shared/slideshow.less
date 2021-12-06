@@ -7,8 +7,8 @@
  * 
  */
 
-@duration: 90s;
-@duration-vert: 60s;
+@duration: 180s;
+@duration-vert: 120s;
 
 .slideshow {
     position: relative;
@@ -156,8 +156,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-33vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
-        /* TODO make this scalable for different number of slides */
+        transform: translateX(calc(-33vw * 5));
     }
 }
 
@@ -166,8 +165,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-75vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
-        /* TODO make this scalable for different number of slides */
+        transform: translateX(calc(-75vw * 5)); 
     }
 }
 
