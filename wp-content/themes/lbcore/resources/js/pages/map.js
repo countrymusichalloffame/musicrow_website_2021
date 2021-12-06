@@ -95,8 +95,9 @@ export class Map {
 
         // disable scroll
         map.scrollZoom.disable(); 
-        if (this.config.bpSmall.matches) {
+        if (this.config.bpMedium.matches) {
             map.dragPan.disable();
+            map.touchZoomRotate.disable();
         }
         
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
