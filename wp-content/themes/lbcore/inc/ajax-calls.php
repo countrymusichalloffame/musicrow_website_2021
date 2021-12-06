@@ -31,7 +31,8 @@ function ajax_get_location() {
 
 function ajax_get_locations() {
     $args = array(
-        'post_type' => 'location'
+        'post_type' => 'location',
+        'posts_per_page' => -1
     );
     $locations = new WP_Query($args);
     $response = array();

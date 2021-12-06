@@ -32,7 +32,8 @@ function lbcore_mapbox_shape_location_data()
     $posts = new WP_Query(
         array(
             'numberposts' => -1,
-            'post_type' => 'location'
+            'post_type' => 'location',
+            'posts_per_page' => -1
         )
     );
 
