@@ -93,15 +93,16 @@ export class Map {
 
         this.mapContainer = map.getContainer()
 
-        map.scrollZoom.disable();
+        // disable scroll
+        map.scrollZoom.disable(); 
+        if (this.config.bpSmall.matches) {
+            map.dragPan.disable();
+        }
+        
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
         /* add LOCATION markers and popups to map */
         for (const { geometry, properties } of window.MusicRow.locations.reverse() ) {
-
-            /*if (geometry.type=="Polygon") {
-                continue; 
-            }*/
 
             // create a HTML element for each marker and popup
             const markerContent = document.createElement('div');
