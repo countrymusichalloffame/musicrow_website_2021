@@ -2,6 +2,7 @@
     $locationData = lbcore_mapbox_shape_location_data();
     $peopleData = lbcore_mapbox_shape_people_data($locationData['markers']);
     $borderData = lbcore_mapbox_shape_border_data();
+
 ?>
 
 <section class="map js-map">
