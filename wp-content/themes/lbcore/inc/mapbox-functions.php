@@ -32,7 +32,8 @@ function lbcore_mapbox_shape_location_data()
     $posts = new WP_Query(
         array(
             'numberposts' => -1,
-            'post_type' => 'location'
+            'post_type' => 'location',
+            'posts_per_page' => -1
         )
     );
 
@@ -218,4 +219,31 @@ function lbcore_mapbox_shape_people_data($geoJSON = array())
     }
 
     return $people;
+}
+
+ // store hardcoded border coordinates
+function lbcore_mapbox_shape_border_data() {
+    $borderCoords = array(
+        [ -86.789761, 36.155508 ],
+        [ -86.786111, 36.150724 ],
+        [ -86.789057, 36.151038 ],
+        [ -86.789158, 36.150458 ],
+        [ -86.788994, 36.150408 ],
+        [ -86.789268, 36.149147 ],
+        [ -86.789853, 36.149172 ],
+        [ -86.790103, 36.147892 ],
+        [ -86.791657, 36.148055 ],
+        [ -86.791657, 36.148055 ],
+        [ -86.793864, 36.136223 ],
+        [ -86.796327, 36.137078 ],
+        [ -86.795814, 36.139595 ],
+        [ -86.796447, 36.139671 ],
+        [ -86.795042, 36.147010 ],
+        [ -86.799280, 36.147443 ],
+        [ -86.799124, 36.148575 ],
+        [ -86.792882, 36.154282 ],
+        [ -86.789704, 36.155612 ],
+    );
+
+    return $borderCoords;
 }

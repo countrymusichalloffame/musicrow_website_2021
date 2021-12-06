@@ -6,9 +6,21 @@
             $slides[] = lbcore_get_placeholder_img();    
         }
     }
+    
+    $slidesCount = count($slides);
+    $slidesSize = '';
+    if ($slidesCount < 9) {
+        $slidesSize = 'sm';
+    } elseif ($slidesCount < 13) {
+        $slidesSize = 'med';
+    } elseif ($slidesCount < 17) {
+        $slidesSize = 'lg';
+    } else {
+        $slidesSize = 'xl';
+    }
 ?>
 
-<div class="slideshow js-hoverintent" id="slideshow">
+<div class="slideshow js-hoverintent" id="slideshow" data-slides-size="<?=$slidesSize?>">
     <div class="slideshow__wrapper">
         <?php if (!empty($slides)): ?>
             <div class="slideshow__slides">

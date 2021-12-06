@@ -6,9 +6,16 @@
  *   https://codepen.io/danielalegria/pen/rJXejj?editors=1000
  * 
  */
+@duration--xl: 400s;
+@duration--lg: 320s;
+@duration--med: 240s;
+@duration--sm: 180s;
 
-@duration: 90s;
-@duration-vert: 60s;
+@duration-vert--xl: 300s;
+@duration-vert--lg: 220s;
+@duration-vert--med: 140s;
+@duration-vert--sm: 90s;
+
 
 .slideshow {
     position: relative;
@@ -41,13 +48,35 @@
 .slideshow__slides--dupe {
     display: flex;
     will-change: transform;
-    animation-duration: @duration;
+    animation-duration: @duration--xl;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 
+    
+    [data-slides-size="lg"] & {
+        animation-duration: @duration--lg;
+    }
+    [data-slides-size="med"] & {
+        animation-duration: @duration--med;
+    }
+    [data-slides-size="sm"] & {
+        animation-duration: @duration--sm;
+    }
+
+
     @media @small-screens-max {
-        animation-duration: @duration-vert;
+        animation-duration: @duration-vert--xl;
         flex-direction: column;
+
+        [data-slides-size="lg"] & {
+            animation-duration: @duration-vert--lg;
+        }
+        [data-slides-size="med"] & {
+            animation-duration: @duration-vert--med;
+        }
+        [data-slides-size="sm"] & {
+            animation-duration: @duration-vert--sm;
+        }
     }
 
     img {
@@ -156,8 +185,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-33vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
-        /* TODO make this scalable for different number of slides */
+        transform: translateX(calc(-33vw * 5));
     }
 }
 
@@ -166,8 +194,7 @@
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-75vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
-        /* TODO make this scalable for different number of slides */
+        transform: translateX(calc(-75vw * 5)); 
     }
 }
 
