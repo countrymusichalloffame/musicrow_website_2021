@@ -1,6 +1,7 @@
 <?php
     $locationData = lbcore_mapbox_shape_location_data();
     $peopleData = lbcore_mapbox_shape_people_data($locationData['markers']);
+    $borderData = lbcore_mapbox_shape_border_data();
 ?>
 
 <section class="map js-map">
@@ -142,6 +143,7 @@
     $script = '<script>
 	window.MusicRow.locations = ' . json_encode($locationData['markers']) .'
     window.MusicRow.people = ' . json_encode($peopleData) .'
+    window.MusicRow.borders = ' . json_encode($borderData) .'
 	</script>';
 
     echo $script;

@@ -67,7 +67,7 @@ export class Map {
         this.init();
     }
     
-    init() {    
+    init() {   
         if(this.jumpLink) {
             this.jumpLink.addEventListener('click', ev => {
             uScrollToElem(this.element);
@@ -207,18 +207,29 @@ export class Map {
                 }
             });
 
-            // add layer for locations oultline
-            /*map.addLayer({
-                'id': 'locations-outline',
+            // grab border source coords from window object 
+            map.addSource('borders', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'Feature',
+                    'geometry': {
+                        'type': 'Polygon',
+                        'coordinates': [ window.MusicRow.borders ]
+                    }
+                }
+            });
+
+            // add layer for border
+            map.addLayer({
+                'id': 'border-fill',
                 'type': 'fill',
-                'source':  'locations',
+                'source':  'borders',
                 'layout': {},
                 'paint': {
-                    'fill-color': '#ffebc1',
-                    'fill-opacity': 0.5
+                    'fill-color': '#f0b23a',
+                    'fill-opacity': 0.3
                 },
-                'filter': ['==', '$type', 'Polygon']
-            });*/
+            });
 
             this.initMarkerListeners(map)            
             this.initCards(map)
