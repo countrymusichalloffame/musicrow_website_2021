@@ -1,0 +1,92 @@
+/*
+
+Font Declarations
+
+Using the `.web-font` and `.web-font-svg` mixins, declare webfonts using the 
+"bulletproof" `@font-face` syntax.
+
+See: (http://www.fontspring.com/blog/further-hardening-of-the-bulletproof-syntax/)
+
+*/
+
+// Samples:
+
+// Font Declaration w/out SVG
+// @font-face {
+//     .m-type__web-font("NAME", font-family, font-family-file);
+// }
+
+// Font Declaration w/ SVG
+// @font-face {
+//     .m-type__web-font-svg("NAME", font-family, font-family-file, FontFamilySVG);
+// }
+
+
+/* Imported Google Fonts
+==========================*/
+
+// font-family: 'Libre Franklin', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;600;700;900&display=swap");
+
+
+/* Imported Typekit Fonts
+==========================*/
+@import url("https://use.typekit.net/qzu2kmq.css");
+
+/* LB Typekit fonts for Exhibits 
+==========================*/
+@import url("https://use.typekit.net/buj7whm.css");
+
+
+/* Import FontAwesome Library */
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?ver=2.2.1.3");
+@import url("https://use.fontawesome.com/releases/v5.8.0/css/all.css");
+
+
+/* Self Hosted Font Files
+==========================*/
+// Font Name
+// @font-face {
+//     font-family: '';
+//     src:
+//         url('../../resources/fonts/.woff2') format('woff2'),
+//         url('../../resources/fonts/.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+// }
+
+
+@font-face {
+    font-family: 'Bodoni Std';
+    src: url('../../../resources/fonts/BodoniStd/BodoniStd-PosterItalic.woff2') format('woff2'),
+        url('../../../resources/fonts/BodoniStd/BodoniStd-PosterItalic.woff') format('woff'),
+        url('../../../resources/fonts/BodoniStd/BodoniStd-PosterItalic.eot?#iefix') format('embedded-opentype'),
+        url('../../../resources/fonts/BodoniStd/BodoniStd-PosterItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CG Triumvirate';
+    src: url('../../../resources/fonts/CGTriumvirate/CGTriumvirate-ExtraCompress.woff2') format('woff2'),
+        url('../../../resources/fonts/CGTriumvirate/CGTriumvirate-ExtraCompress.woff') format('woff'),
+        url('../../../resources/fonts/CGTriumvirate/CGTriumvirate-ExtraCompress.eot?#iefix') format('embedded-opentype'),
+        url('../../../resources/fonts/CGTriumvirate/CGTriumvirate-ExtraCompress.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sequel100Wide';
+    src: url('../../../resources/fonts/Sequel100Wide/Sequel100Wide-75.woff2') format('woff2'),
+        url('../../../resources/fonts/Sequel100Wide/Sequel100Wide-75.woff') format('woff'),
+        url('../../../resources/fonts/Sequel100Wide/Sequel100Wide-75.eot?#iefix') format('embedded-opentype'),
+        url('../../../resources/fonts/Sequel100Wide/Sequel100Wide-75.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+

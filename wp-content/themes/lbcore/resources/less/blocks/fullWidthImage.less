@@ -1,0 +1,15 @@
+.fullWidthImage {
+    position: relative;
+    // max-height: 580px; // TODO: temp
+}
+
+.fullWidthImage__wrapper {
+
+    &[data-overlay=true] {
+        .m-images__full-overlay(@color: var(--background-overlay)); 
+    }
+}
+
+.fullWidthImage__figure {
+    max-height: 580px;
+}

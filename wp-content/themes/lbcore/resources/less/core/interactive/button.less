@@ -1,0 +1,309 @@
+
+/*
+
+Interactive Elements
+
+*/
+
+/*
+
+button
+
+Default interactive button styles. This `.btn` class can be applied to `<a>`, 
+`<button>`, or `<input>` elements. Button color and style classes can be combined 
+with size classes, much like the type modules.
+
+````button
+<a class="button__btn" href="#">Default</a>
+<a class="button__primary" href="#">Primary</a>
+<a class="button__danger" href="#">Danger</a>
+````
+
+*/
+
+button {
+    font-size: 100%;
+    margin: 0;
+    -webkit-appearance: button;
+    display: inline-block;
+    cursor: pointer;
+    line-height: normal;
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+/**
+ * Button : No Button
+ * 
+ * Remove basic button styles
+ */
+.button__no-button {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    border: 0;
+
+    &:hover,
+    &:focus,
+    &.is-current {
+        background: transparent;
+        color: inherit;
+    }
+}
+
+.button__base {
+
+    // Baseline
+    width: auto;
+    height: auto;
+    margin: 0;
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    -webkit-appearance: none;
+    -webkit-background-clip: padding;
+       -moz-background-clip: padding;
+            background-clip: padding-box;
+    outline: 0;
+    overflow: visible;
+    cursor: pointer;
+    vertical-align: middle;
+    display: inline-block;
+    background: transparent;
+    color: @charcoal;
+    text-align: center; 
+    padding: 15px 20px;
+    
+    .m-vertical-rhythm__margin-leader();
+    
+    p > & {
+        margin-top: 0;
+    }
+    
+    &:hover,
+    &:focus,
+    &.is-current {
+        //background: lighten( @light-grey, 10% );
+    }
+
+    &:focus {
+		outline: 2px dashed @charcoal;
+        outline-offset: 2px;	
+	}
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+/*
+
+Button Variations
+
+ */
+
+.button__primary {
+
+    &:extend(.button__base all);
+
+    &:extend(.styles__sequel);
+    .m-type__type-size(@petite-text-size, 18);
+    letter-spacing: 2px;
+
+    background: @action-gold;
+    color: @charcoal;
+
+    &:hover,
+    &.is-current {
+        background: @gold;
+        color: @soft-black;
+    }
+
+    &:focus {
+        outline: 2px solid @charcoal;
+        outline-offset: 2px;
+    }
+
+    &:disabled {
+        background:#909090;
+        color: @soft-black;
+    }
+}
+
+
+/** 
+ * Button sizes: regular, large
+ * 
+ * To be added in addition to other button classes.
+ */
+.button__regular {
+    .m-type__type-size(@petite-text-size, 18);
+    letter-spacing: 2px;
+}
+
+.button__large {
+    .m-type__type-size(@normal-text-size, 22);
+    letter-spacing: 3.6px;
+}
+
+
+.button__full-width { 
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/** 
+ * Slider Buttons
+ * 
+ * Next / Prev navigation buttons for carousels and sliders.
+ */
+.button__slider {
+    &:extend(.button__base all);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: @button-slider-size--sm;
+    height: @button-slider-size--sm;
+    padding: 0;
+    border: 3px solid @gold; 
+    border-radius: 50%;
+
+    &.is-disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled),
+    &:focus:not(:disabled) {
+        background: @gold;
+    }
+
+    &:focus {
+        outline: 2px dashed @charcoal;
+        background: transparent;
+    }
+
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+
+    .icons__icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    @media @medium-screens-min {
+        width: @button-slider-size;
+        height: @button-slider-size;
+        border-width: 4px;
+
+        .icons__icon {
+            width: 18x;
+            height: 18x;
+        }
+    }
+}
+
+.button__slider--dark {
+    border-color: @action-gold;
+    
+    .icons__icon {
+        color: @white;
+    }
+
+    &:focus {
+        outline: 2px dashed @white;
+        background: transparent;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+/**
+ * Close Button 
+ */
+.button__close {
+    &:extend(.button__base all);
+    
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border: 2px solid @gold; 
+    background-color: #F7F5F0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .icons__icon {
+        width: 16px;
+    }
+
+    &:hover,
+    &:active {
+        background-color: #F7F5F0;
+    }
+
+    &:focus {
+        background-color: @action-gold;
+        color: @charcoal;
+        outline: 2px dashed @charcoal;
+        outline-offset: 2px;
+
+        .icons__icon {
+            color: @charcoal;
+        }
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.button__close--small {
+    width: 24px;
+    height: 24px;
+
+    .icons__icon {
+        width: 12px;
+    }
+}
+
+.button__close--dark {
+    background-color: transparent;
+    color: @white;
+    border-color: @action-gold;
+
+    &:hover,
+    &:active {
+        background-color: @action-gold;
+        color: @charcoal;
+    }
+
+    &:focus {
+        outline-color: @white;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}

@@ -1,0 +1,29 @@
+/**
+ * m-textures.less
+ * Make sure all texture mixins have a parent div with position: relative
+ */
+  
+
+/* sets background to our default texture */
+.m-textures--light() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('/wp-content/themes/lbcore/resources/images/texture-default.jpg');
+  z-index: -1;
+}
+
+/* sets background to our default texture with a dark grey overlay */
+.m-textures--dark() {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('/wp-content/themes/lbcore/resources/images/texture-default-dark.jpg');
+  z-index: -1;
+}
+
+  

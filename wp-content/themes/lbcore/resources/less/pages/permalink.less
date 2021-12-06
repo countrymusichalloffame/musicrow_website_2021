@@ -1,0 +1,109 @@
+.permalink {
+    position: relative;
+}
+
+.permalink__jumplinks-wrapper {
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    padding: @16px @48px 0 @48px; 
+    background: @texture-dark @slate;
+
+    /* underline */
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 3px;
+        background-color: @slate;
+    }
+
+    @media @medium-screens-max {
+        padding-top: 0;
+    }
+}
+
+.permalink__jumplinks-reveal {
+    display: none;
+
+    @media @medium-screens-max {
+        .m-type__letter-spacing(2, @non-pariel-text-size);
+
+        display: block;
+        margin: 0 auto;
+        text-transform: uppercase;
+
+        svg {
+            transform: translate 250ms ease-in-out;
+            transform-origin: center center;
+        }
+
+        &.is-revealed {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}
+
+.permalink__jumplinks-dropdown {
+    @media @medium-screens-max {
+        display: none;
+        
+        &.is-revealed {
+            display: flex; 
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-bottom: @half-vertical;
+        }
+    }
+}
+
+.permalink__jumplink {
+    position: relative;
+    padding: @16px 0;
+    margin-right: @full-side;
+    color: @white;
+
+    &:hover,
+    &:focus,
+    &.is-active {
+        color: var(--text-color-inverse);
+    }
+
+    &:focus {
+        outline: 2px dashed @white;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+
+    &.is-active {
+        &:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: .5px;
+            right: 0;
+            height: 3px;
+            background-color: var(--text-color-inverse);
+        }
+    }
+
+    @media @medium-screens-max {
+        .links__link--small();
+
+        margin-right: 0;
+        padding: @half-vertical 0;
+        text-align: center;
+        
+        &:first-of-type {
+            padding-top: 0;
+        }
+    }
+}

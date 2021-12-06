@@ -1,0 +1,200 @@
+.audioGallery {
+    position: relative;
+    padding: 48px 0;
+    padding-top: 62px;
+    background-image: @texture-light;
+
+    @media @medium-screens-min {
+        padding: 72px 0;
+    }
+}
+
+.audioGallery__title {
+    color: var(--text-color);
+}
+
+/* songs slider */
+.audioGallery__slides-wrapper {
+    position: relative;
+    margin-top: 48px;
+    height: var(--slider-height);
+    transition: height 250ms ease-in-out;
+    
+    @media @large-screens-min {
+        margin: 62px 50px 0;
+    }
+
+    &:focus {
+        outline: 2px dashed @charcoal;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.audioGallery__slides-overflow {
+    .m-carousel();
+}
+
+.audioGallery__slides {
+    .m-carousel__slides();
+
+    align-items: flex-start;
+}
+
+.audioGallery__slide {
+    .m-carousel__slide();
+
+    position: relative;
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    align-items: center;
+
+    @media @medium-screens-min {
+        flex: 0 0 50%;
+    }
+
+    @media @large-screens-min {
+        flex: 0 0 33%;
+    }
+
+    /* only show play/pause buttons & moving story on current slide */
+    &:not(.is-current) {
+        .audioPlayer__wrapper {
+            display: none;
+        }
+        .movingStory {
+            display: none;
+        }
+    }
+}
+
+.audioGallery__nav-item {
+    position: absolute;
+    top:  ( @album-art-size / 2 ) - ( @button-slider-size / 2 ); // centers the button vertically with the album art
+    margin-top: @full-vertical;
+
+    @media @small-screens-max {
+        top: @album-art-size--mobile; // puts buttons right below album for small screens
+    }
+    
+    &[data-direction=prev] {
+        left: 0;
+    
+        @media @medium-screens-only {
+            transform: translateX(-25px); 
+        }
+
+        @media @large-screens-min {
+            transform: translateX(-50px); // slides wrapper horz margin
+        }
+    }
+
+    &[data-direction=next] {
+        right: 0;
+
+        @media @medium-screens-only {
+            transform: translateX(25px);
+        }
+
+        @media @large-screens-min {
+            transform: ~"translateX(calc(100% + @{full-vertical}))";
+        }
+    }
+
+    &.is-disabled {
+        opacity: 0.5;
+    }
+}
+
+/* slider 'skip to' buttons */
+.audioGallery {
+    .slider__indicators-list {
+        display: none;
+    }
+}
+
+/* interviews */
+.audioGallery__list {
+    margin-top: 48px;
+
+    @media @large-screens-min {
+        margin-top: 62px;
+    }
+}
+
+.audioGallery__list-item {
+    position: relative;
+
+    &:before { 
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: @grey;
+    }
+
+    &:last-of-type {
+        &:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: @grey;
+        }
+    }
+}
+
+.audioGallery__slide-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: @full-vertical;
+    bottom: 0;
+    border: none;
+    background: transparent;
+    display: block;
+    width: ~"calc(100% - @{double-vertical})";
+    padding: 0;
+    z-index: 2;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: ~"calc(100% + @{full-vertical})";
+        height: ~"calc(100% - @{half-vertical})";
+        transform: ~"translateX(-@{half-vertical})";
+        border: 2px dashed @yellow;
+        opacity: 0;
+        transition: opacity 250ms ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        background: transparent;
+        border: none;
+        outline: none;
+    }
+
+    &:focus:before {
+        opacity: 1;
+    }
+
+    .is-current & {
+        display: none;
+
+        &:before {
+            opacity: 0;
+        }
+    }
+}

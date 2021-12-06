@@ -1,0 +1,53 @@
+.quote {
+    position: relative;
+    padding: 41px 0;
+
+    @media @medium-screens-min {
+        padding: 60px 0;
+    }
+}
+
+.quote__wrapper {
+    padding: @full-vertical 0;
+
+    @media @medium-screens-min {
+        padding: @double-vertical 0;
+    }
+}
+
+.quote__copy {
+    .m-type__type-size(@primer-text-size, 48);
+
+    text-align: center;
+    color: var(--text-primary-inverse);
+
+    .quote[data-background=image] & {
+        color: @white;
+    }
+
+    @media @medium-screens-min {
+        .m-type__type-size(@columbian-text-size, 62);
+    }
+}
+
+.quote__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
+
+    .quote[data-background=color] & {
+        background-color: var(--background-color);
+    }
+
+    .quote[data-overlay=true] & {
+        .m-images__full-overlay(@color: var(--background-overlay));
+    }
+}
+
+.quote__background-figure {
+    min-height: 100%;
+}

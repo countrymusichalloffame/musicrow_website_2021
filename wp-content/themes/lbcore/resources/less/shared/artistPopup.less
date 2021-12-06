@@ -1,0 +1,208 @@
+.artistPopup {
+    position: relative;
+    max-height: 80vh; // temp
+    overflow-y: scroll;
+
+    .m-shadow__box-shadow(
+		@20px 
+		@40px, 
+		@60px, 
+		@shadow-color: rgba(0,0,0,.5)
+	);
+
+    @media @small-screens-max {
+        max-height: 67vh; // full height for small screens
+    }
+
+    @media @medium-screens-only {
+        max-height: 54vh;
+    }
+}
+
+.artistPopup__heading {
+    top: 0;
+    position: sticky;
+    z-index: 5;
+    padding: @20px;
+    background: @slate @texture-dark;
+
+    @media @medium-screens-min {
+        display: flex;
+        justify-content: space-between;
+        padding: @26px @32px;
+    }
+}
+
+.artistPopup__name {
+    text-transform: uppercase;
+    margin-right: @8px;
+}
+
+.artistPopup__cta {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    border: none;
+    padding: 0;
+    padding-right: @6px;
+    text-align: left;
+    background: transparent;
+    color: var(--text-color-inverse);
+    transition: all .35s @easeInOutCubic;
+
+    .icons__icon {
+        width: 17px;
+        height: 17px;
+        margin-left: @half-side;
+        transition: transform .35s @easeInOutCubic;
+    }    
+
+    &:hover,
+    &:focus {
+        color: @white;
+
+        .icons__icon {
+            transform: translateX(5px);
+        }
+    }
+    
+    &:focus {
+        border: none;
+        outline: 2px dashed @white;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.artistPopup__close {
+    position: absolute;
+    top: @20px;
+    right: @20px;
+    background: transparent;
+    color: @white;
+    border-color: @action-gold;
+
+    @media @medium-screens-min {
+        display: none;
+    }
+}
+
+.artistPopup__content {
+    padding: @32px;
+
+    @media @small-screens-max {
+        @padding: @20px @32px;
+    }
+
+    &[data-has-footer="true"] {
+        padding-bottom: 0;
+    }
+
+    /* no box shadows on reel image */
+    &[data-media-type="simpleAudio"] {
+        .albumAudio__figure {
+            box-shadow: none;
+        }
+    }
+
+    .albumAudio {
+        /* do not show album audio copy */
+        .albumAudio__copy-wrapper {
+            display: none;
+        }
+
+        /* center audio player controls */
+        .albumAudio__flex {
+            justify-content: center;
+        }
+    }
+}
+
+.artistPopup__footer {
+    bottom: 0;
+    position: sticky;
+    background: @white;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @42px @48px;
+
+    @media @small-screens-max {
+        padding: @20px @32px;
+    }
+}
+
+.artistPopup__nav {
+
+    &:extend(.links__link all);
+    &:extend(.links__link--large all);
+
+    text-transform: uppercase;
+
+    @media @small-screens-max {
+        .links__link--small();
+
+        /* hide text on small screens */
+        span {
+            visibility: hidden;
+        }
+    }
+
+    &[data-mb-id=null] {
+        visibility: hidden;
+    }
+
+    &[data-dir="left"] {
+        .icons__icon {
+            margin-right: @9px;
+            transform: scaleX(-1);
+        }
+
+        &:hover,
+        &:focus {
+            .icons__icon {
+                transform: scaleX(-1) translateX(10px);
+            }
+        }
+    }
+
+    &[data-dir="right"] {
+        .icons__icon {
+            margin-left: @9px;
+        }
+    }
+}
+
+
+/** overrides **/
+.artistPopupContent {
+
+    .timeline__albumAudio-figure {
+        /* no record on artist popup simple audio */
+        &[data-audio-type='simple_audio'] {
+            &::after {
+                content: none;
+            }
+        }
+    }
+
+    .timeline__section-heading {
+        @media @large-screens-min {
+            padding-top: @8px;
+        }
+    }
+
+    .video__icon-border {
+        width: @48px;
+        height: @48px;
+    }
+    
+    .video__icon {
+        width: @18px;
+        height: @18px;
+    }
+}

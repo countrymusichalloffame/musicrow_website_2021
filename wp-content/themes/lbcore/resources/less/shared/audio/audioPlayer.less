@@ -1,0 +1,197 @@
+
+.audioPlayer__wrapper {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-top: @half-vertical;
+
+    @media @medium-screens-max {
+        align-items: flex-start;
+    }
+}
+
+.audioPlayer__button {
+    width: 24px;
+    height: 24px;
+
+    &[data-control=play] {
+        margin-right: @quarter-side;
+    }
+
+    &.is-active,
+    &:hover,
+    &:focus {
+        .icons__icon {
+            color: @gold;
+        }
+    }
+
+    &:focus {
+        outline: 2px dashed @charcoal;
+        outline-offset: 2px;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+
+    .icons__icon {
+        width: 24px;
+        height: 24px;
+        color: @grey;
+
+        .simpleAudio & {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media @medium-screens-max {
+            width: 14px;
+            height: 14px;
+        }
+    }
+}
+
+.audioPlayer__progress {
+    display: flex;
+    flex: 70%;
+    max-width: 300px;
+    margin-top: @5px;
+    margin-left: @half-side;
+
+    @media @medium-screens-max {
+        flex-wrap: wrap;
+        margin-top: @8px;
+    }
+}
+
+
+.audioPlayer__porgress-time {
+    .m-type__type-size(@minion-text-size, 14);
+
+    flex: 0 0 30%;
+    margin-top: 0;
+    margin-left: @full-side;
+
+    @media @medium-screens-max {
+        flex: 100%;
+        margin-top: @8px;
+        margin-left: @4px;
+    }
+}
+
+/* progress slider */
+.audioPlayer__progress-input {
+
+    /* variables */
+    @thumb: 16px;
+    @thumb-mobile: 14px;
+    @track-h: 2px;
+    @thumb-shadow: 2px 2px 2px rgba(0,0,0,.5);
+    
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    background: transparent; /* Otherwise white in Chrome */
+    flex: 0 0 62%;
+
+    @media @medium-screens-max {
+        flex: 100%;
+    }
+
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+    &:focus {
+        outline: 2px dashed @charcoal;
+    }
+    &::-ms-track {
+        width: 100%;
+        cursor: pointer;
+        /* Hides the slider so custom styles can be added */
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    /* Special styling for WebKit/Blink */
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        margin-top: ( @track-h / 2 ) - ( @thumb / 2 );
+        height: @thumb;
+        width: @thumb;
+        border-radius: 50%;
+        background: @soft-black;
+        cursor: pointer;
+
+        @media @medium-screens-max {
+            margin-top: ( @track-h / 2 ) - ( @thumb-mobile/ 2 );
+            width: @thumb-mobile;
+            height: @thumb-mobile;
+        }
+    }
+    /* All the same stuff for Firefox */
+    &::-moz-range-thumb {
+        height: @thumb;
+        width: @thumb;
+        border-radius: 50%;
+        background: @soft-black;
+        cursor: pointer;
+
+        @media @medium-screens-max {
+            width: @thumb-mobile;
+            height: @thumb-mobile;
+        }
+    }
+    /* All the same stuff for IE */
+    &::-ms-thumb {
+        height: @thumb;
+        width: @thumb;
+        border-radius: 50%;
+        background: @soft-black;
+        cursor: pointer;
+
+        @media @medium-screens-max {
+            width: @thumb-mobile;
+            height: @thumb-mobile;
+        }
+    }
+    &::-webkit-slider-runnable-track {
+        width: 100%;
+        height: @track-h;
+        background: @light-grey;
+        cursor: pointer;
+    }
+    &:focus::-webkit-slider-runnable-track {
+        background: @grey;
+    }
+    &::-moz-range-track {
+        width: 100%;
+        height: @track-h;
+        background: @light-grey;
+        cursor: pointer;
+    }
+    &::-ms-track {
+        width: 100%;
+        height: @track-h;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        border-width: 16px 0;
+        color: transparent;
+    }
+    &::-ms-fill-lower {
+        background: @light-grey;
+    }
+    &:focus::-ms-fill-lower {
+        background: @light-grey;
+    }
+    &::-ms-fill-upper {
+        background: @light-grey;
+    }
+    &:focus::-ms-fill-upper {
+        background: @light-grey;
+    }
+
+    &::-webkit-media-controls-timeline {
+        background: pink;
+    }
+}

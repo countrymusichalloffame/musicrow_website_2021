@@ -1,0 +1,124 @@
+/*
+
+WYSIWYG
+
+Though we keep our styles as flexible and modular as possible, there may be 
+times, as when using a WYSIWYG editor, when some styles need to be baked in. 
+Here, we specify a `.wysiwyg` class that wraps around that content, and 
+hardcode some of those styles
+
+    <div class="wysiwyg">
+        [WYSIWYG Content]
+    </div>
+
+*/
+
+.wysiwyg {
+    h1 {
+        margin-top: 0;
+    }
+    h2,
+    h3,
+    h4,
+    h5,
+    h6  {
+        margin-top: 1.5em;
+    }
+}
+.wysiwyg {
+    /* Headings & Paragraphs */
+    h1 {
+        &:extend( .styles__h1 all );
+    }
+    h2 {
+        &:extend( .styles__h2 all );
+    }
+    h3 {
+        &:extend( .styles__h3 all );
+    }
+    h4 {
+        &:extend( .styles__h4 all );
+    }
+    h5 {
+        &:extend( .styles__h5 all );
+    }
+    h6 {
+        &:extend( .styles__h6 all );
+    }
+    p {
+        &:extend( .styles__paragraph--regular all );
+    }
+
+    /* Links */
+    a {
+        &:extend( .links__inline all );
+    }
+
+    /* Lists */
+    ul,
+    ol {
+        padding-left: @full-side;
+
+        li {
+            &:not(:first-of-type) {
+                margin-top: @full-vertical;
+            }
+        }
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: ( @full-side * -1 );
+                top: 5px;
+                width: 0; 
+                height: 0; 
+                border-bottom: 7px solid transparent;  /* left arrow slant */
+                border-top: 7px solid transparent; /* right arrow slant */
+                border-left: 11px solid var(--text-color); /* bottom, set background color here */
+                font-size: 0;
+                line-height: 0;
+            }
+        }
+    }
+
+    ol {
+        li {
+            &::marker {
+                .styles__sequel();
+
+                color: var(--text-color);
+            }
+        }
+    }
+
+}
+
+.wysiwyg--first-letter {
+    p {
+        &:first-of-type:first-letter {
+            font-family: @bodoni;
+            color: var(--text-color);
+            float: left;
+            font-size: 76px;
+            line-height: .45;
+            margin-top: -18px;
+            padding-top: 30px;
+            padding-right: 8px;
+            padding-left: 3px;
+            padding-bottom: 0;
+
+            @media @small-screens-max {
+                font-size: 64px;
+                line-height: .36;
+                margin-top: -26px;
+            }
+        }
+    }
+}

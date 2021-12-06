@@ -1,0 +1,35 @@
+{
+  "name": "motif",
+  "version": "4.0.0",
+  "homepage": "http://getmotif.com",
+  "description": "A responsive front-end framework to tell your story.",
+  "authors": [
+    "Lifeblue <motif@lifeblue.com>"
+  ],
+  "main": [
+    "less/global.less",
+    "js/global.js",
+    "dist/css/motif.css"
+  ],
+  "keywords": [
+    "css",
+    "js",
+    "jquery",
+    "less",
+    "responsive",
+    "front-end",
+    "framework",
+    "web",
+    "brand",
+    "prototype"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "build",
+    "test",
+    "tests"
+  ]
+}

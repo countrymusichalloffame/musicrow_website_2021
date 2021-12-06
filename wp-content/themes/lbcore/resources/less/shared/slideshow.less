@@ -1,0 +1,222 @@
+/**
+ * Slideshow animation with infinite loop
+ * 
+ * @resources: 
+ *   https://codepen.io/travis-self/pen/jOwVYPZ
+ *   https://codepen.io/danielalegria/pen/rJXejj?editors=1000
+ * 
+ */
+
+@duration: 90s;
+@duration-vert: 60s;
+
+.slideshow {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100%;
+    
+    @media @medium-screens-min {
+        width: 100vw;
+        height: 50vh;
+        max-height: 480px;
+    }
+}
+
+.slideshow__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: center;
+
+    @media @small-screens-max {
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.slideshow__slides,
+.slideshow__slides--dupe {
+    display: flex;
+    will-change: transform;
+    animation-duration: @duration;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    @media @small-screens-max {
+        animation-duration: @duration-vert;
+        flex-direction: column;
+    }
+
+    img {
+        max-width: initial;
+        object-fit: cover;
+        object-position: center center;
+
+        @media @small-screens-max {
+            max-width: 100%;
+        }
+    }
+
+    .slideshow.is-hovering &,
+    .is-paused & {
+        animation-play-state: paused;
+    }
+
+    @media (prefers-reduced-motion) {
+        animation-play-state: paused;
+    }
+}
+
+.slideshow__slides {
+    animation-name: slideshow_one_vert;
+
+    @media @medium-screens-min {
+        animation-name: slideshow_one;
+    }
+}
+
+.slideshow__slides--dupe {
+    animation-name: slideshow_two_vert;
+
+    @media @medium-screens-min {
+        animation-name: slideshow_two;
+    }
+}
+
+.slideshow__controls {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (prefers-reduced-motion) {
+        display: none;
+    }
+}
+
+.slideshow__control {
+    display: flex;
+    align-items: center;
+    border: none;
+    padding: 0;margin:0;
+    color: @white;
+    background:none; 
+
+    &:focus {
+        outline: 2px dashed @white;
+    }
+
+    &-icon {
+        width: 35px;
+        height: 35px;
+        border: 2px solid @action-gold;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+    }
+
+    svg {
+        width: 11px;
+        height: 11px;
+    }
+
+    &[data-action="pause"] {
+        .is-paused & {
+            display: none;
+        }
+    }
+
+    &[data-action="play"] {
+        display: none;
+
+        .is-paused & {
+            display: flex;
+        }
+    }
+}
+
+.slideshow__control-text {
+    .m-type__type-size(@non-pariel-text-size, @non-pariel-text-size);
+
+    opacity: 0;
+    transition: opacity 250ms ease-in-out 250ms;
+    margin-right: 5px;
+
+    .slideshow__control:hover &,
+    .slideshow__control:focus & {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll{
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-33vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
+        /* TODO make this scalable for different number of slides */
+    }
+}
+
+@keyframes scrollMobile {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-75vw * 5)); // formula ?? : (( {{slide width}} * -1 ) * {{number of slides}} )
+        /* TODO make this scalable for different number of slides */
+    }
+}
+
+
+@keyframes slideshow_one {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform: translateX(-50%);
+    }
+    25.01% {   
+        transform: translateX(150%);
+    }
+}
+
+@keyframes slideshow_two {
+    0% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(-150%);
+    }
+    75.01% {
+        transform: translateX(50%);
+    }
+}
+
+
+@keyframes slideshow_one_vert {
+    0% {
+        transform: translateY(0%);
+    }
+    25% {
+        transform: translateY(-50%);
+    }
+    25.01% {   
+        transform: translateY(150%);
+    }
+}
+
+@keyframes slideshow_two_vert {
+    0% {
+        transform: translateY(0%);
+    }
+    75% {
+        transform: translateY(-150%);
+    }
+    75.01% {
+        transform: translateY(50%);
+    }
+}

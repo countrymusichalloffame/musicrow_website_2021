@@ -1,0 +1,194 @@
+// Grid Variables
+@base-column: 106;
+@base-margin: 48;
+@total-columns: 12;
+
+// Tablet Grid
+@tablet-column: 106;
+@tablet-margin: 48;
+@tablet-total-cols: 12;
+
+// Mobile Grid
+@mobile-column: 35;
+@mobile-margin: 25;
+@mobile-total-cols: 6;
+
+// Responsive Breakpoints
+@bp-x-small-width: 320;
+@bp-small-width: 480;
+@bp-medium-width: 768;
+@bp-large-width: 1036;
+@bp-x-large-width: 1240;
+
+//Wrapper
+@wrapper-width-base: 0.89;
+@px-wrapper-width-max: 1800;
+@px-wrapper-full-bleed-max: 1800;
+@bp-wrapper-at-maximum: @px-wrapper-width-max / @wrapper-width-base;
+
+// Typographic Scale
+@inch-text-size: 120;
+@super-canon-text-size: 80;
+@canon-text-size: 60;
+@meridian-text-size: 48;
+@paragon-text-size: 40;
+@tertia-text-size: 34;
+@columbian-text-size: 28;
+@primer-text-size: 22;
+@normal-text-size: 18;
+@petite-text-size: 16;
+@non-pariel-text-size: 14;
+@minion-text-size: 12;
+@micro-text-size: 10;
+
+// Baseline Typography
+@base-text-size: @normal-text-size;
+
+// Change this if `html` !== `100%`
+@root-text-size: 16;
+
+// For line-height in .type-size mixin
+@round-to-nearest: quarter;
+
+// Vertical Rhythm
+@base-vertical: 20;
+
+// Border Variables
+@default-border-width: 1;
+@default-border-radius: 3;
+
+// Color Variables
+
+// -- MUSIC ROW COLORS-- 
+// Blacks
+@black: #000;
+@charcoal: #141414;
+@slate: #29282b;
+@light-black: lighten( @black, 15% );
+@soft-black: #2B2B2B; 
+@caption-black: #3E3E3E;
+
+// Greys
+@grey: #909090;
+@dark-grey: darken(@grey, 15%);
+@light-grey: lighten(@grey, 15%);
+
+// Golds
+@gold: #B97C05;
+@action-gold: #F0B23A;
+
+// Reds
+@red: #D0401A;
+@light-rust: #FF683F;
+
+// Teals
+@teal: #009988;
+@light-teal: #52DFBD;
+
+// Blues
+@blue: #0090AF;
+@light-blue: #46D2EF;
+
+// Greens
+@green: #627F25;
+@light-green: #ABD26E;
+@dark-green: darken(@green, 15%);
+
+// Whites
+@white: #fff;
+@dark-white: darken(@white, 15%);
+
+
+// -- BOILIERPLATE COLORS -- 
+// Reds
+@basic-red: #e63c4d;
+@dark-red: darken(@basic-red, 15%);
+@light-red: lighten(@basic-red, 15%);
+
+// Yellows
+@yellow: #fcb040;
+@dark-yellow: darken(@yellow, 15%);
+@light-yellow: lighten(@yellow, 15%);
+
+// Oranges
+@orange: #f79433;
+@dark-orange: darken(@orange, 15%);
+@light-orange: lighten(@orange, 15%);
+
+// Blues
+@basic-blue: #1f75ae;
+@basic-dark-blue: darken(@basic-blue, 15%);
+@basic-light-blue: lighten(@basic-blue, 15%);
+
+
+// Brands
+@facebook-blue: #3b5998;
+@twitter-blue: #00a0d1;
+// End Color Variables
+
+// Form Variables
+@input-border: @default-border-width;
+@input-padding: 4;
+@input-background-color: @white;
+@input-border-color: @light-grey;
+@label-required-color: @blue;
+
+// Table Variables
+@table-border-color: @light-grey;
+
+// Typographic Variables
+@primary-text-color: @charcoal;
+@secondary-text-color: @dark-grey;
+@inverse-text-color: @white;
+@button-color: @inverse-text-color;
+
+// Font Declarations
+// Ex:
+// @source-sans-regular: "Source Sans Pro", @stack-sans-serif;
+@stack-serif: "Times New Roman", Times, Georgia, serif;
+@stack-sans-serif: Arial Black, "Arial Unicode", "Lucida Sans Unicode", sans-serif;
+@stack-slab-serif: "Courier New", Courier, serif;
+@stack-mono: Courier, monospace;
+@stack-icons: "icons";
+
+// Music Row Fonts
+@libre-franklin: "Libre Franklin", @stack-sans-serif;
+@bodoni: 'Bodoni Std';
+@cgTriumvirate: 'CG Triumvirate';
+@sequel100: 'Sequel100Wide', @stack-sans-serif;
+
+
+// Header Variables
+@primary-header-color: @charcoal;
+@secondary-header-color: @red;
+@header-highlight-color: @light-rust;
+@inverse-header-color: @light-rust;
+
+// Link Variables
+@primary-link-color: @charcoal;
+@primary-link-hover: @gold;
+
+@primary-link-color--dark: @action-gold;
+@primary-link-hover--dark: @white;
+
+@disabled-link: @grey;
+
+// Form Variables
+@active-color: @gold;
+@warning-color: @dark-yellow;
+@success-color: @green;
+@error-color: @red;
+@info-color: @basic-dark-blue;
+
+// Sprite Variables
+@sprite-grid: 50px;
+
+// Misc
+@album-art-size: 260px;
+@album-art-size--mobile: 220px;
+@button-slider-size: 44px;
+@button-slider-size--sm: 35px;
+
+// --- TEXTURE IMAGEES ---
+@texture-light: url('/wp-content/themes/lbcore/resources/images/texture-default.jpg');
+@texture-dark: url('/wp-content/themes/lbcore/resources/images/texture-default-dark.jpg');

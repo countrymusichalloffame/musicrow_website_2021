@@ -1,0 +1,134 @@
+/**
+ * Motif v4.0.0
+ * A responsive front-end framework to tell *your* story
+ * http://getmotif.com
+ */
+
+/**
+ * Global Stylesheet
+ * The site's main (and perhaps only) stylesheet. All supporting stylesheet 
+ * files are imported into and compiled from here.
+ */
+
+// Config File
+// Breakpoint, color, typographic, and other settings.
+@import "core/config/config.less";
+
+// Variables & Mixins
+// You'll want to keep these.
+@import "core/config/vars.less";
+@import "core/mixins/mixins.less";
+
+/**
+ * Normalize
+ * Using the Normalize.css (http://necolas.github.io/normalize.css/) with only minor modification.
+ */
+@import "core/layout/display.less";
+@import "core/type/type.less";
+
+// Reusable Modules
+@import "core/modules/lists.less";
+@import "core/modules/ratios.less";
+
+// Media
+@import "core/media/media.less";
+@import "core/media/icons.less";
+@import "core/media/images.less";
+@import "core/media/video.less";
+
+// Appearance
+@import "core/appearance/background.less";
+@import "core/appearance/color.less";
+
+// Typography
+@import "core/type/font-face.less";
+@import "core/type/styles.less";
+@import "core/type/hierarchy.less";
+
+// Interactive Elements
+@import "core/interactive/button.less";
+@import "core/interactive/links.less";
+
+// Forms
+@import "core/forms/elements.less";
+@import "core/forms/messaging.less";
+
+// Layout
+@import "core/layout/spacing.less";
+@import "core/layout/presentational.less";
+@import "core/layout/grid.less";
+@import "core/layout/off-canvas.less";
+@import "core/layout/overflow-list.less";
+@import "core/layout/wrappers.less";
+@import "core/layout/flex.less";
+
+// Furniture
+@import "core/furniture/tables.less";
+@import "core/furniture/panel.less";
+@import "core/furniture/wysiwyg.less";
+
+// Scripts
+@import "core/scripts/reveal.less";
+@import "core/scripts/expand.less";
+@import "core/scripts/fade.less";
+@import "core/scripts/menu.less";
+@import "core/scripts/tabs.less";
+
+// Themes
+@import "core/themes/theme.less";
+
+/**
+ * Shared
+ */
+
+ // Blocks
+@import "blocks/permaCTA.less";
+@import "blocks/permaHero.less";
+@import "blocks/video.less";
+@import "blocks/comparison.less";
+@import "blocks/timeline.less";
+@import "blocks/slider.less";
+@import "blocks/profileCarousel.less";
+@import "blocks/nextPrev.less";
+@import "blocks/audioGallery.less";
+@import "blocks/mediaGallery.less";
+@import "blocks/featuredMedia.less";
+@import "blocks/quote.less";
+@import "blocks/fullWidthImage.less";
+@import "blocks/storytelling.less";
+
+// Shared Styles
+@import "shared/foundation/navigation.less";
+@import "shared/foundation/footer.less";
+@import "shared/foundation/cta.less";
+@import "shared/foundation/header.less";
+@import "shared/foundation/gridlines.less";
+@import "shared/movingStory.less";
+@import "shared/modal.less";
+@import "shared/slideshow.less";
+
+// Audio Styles
+@import "shared/audio/albumAudio.less";
+@import "shared/audio/audioPlayer.less";
+@import "shared/audio/simpleAudio.less";
+@import "shared/audio/mediaGalleryAudio.less";
+@import "shared/artistPopup.less";
+
+/**
+ * Pages
+ */
+ @import "pages/map.less";
+ @import "pages/permalink.less";
+
+/**
+ * Print
+ */
+@media print {
+    @import "core/site/print.less";
+}
+
+/**
+ * Prototype Styles
+ * REMOVE WHEN BEGINNING PRODUCTION
+ */
+//@import "core/site/proto.less";

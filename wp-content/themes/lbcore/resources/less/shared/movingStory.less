@@ -1,0 +1,37 @@
+.movingStory__text {
+    .m-type__type-size(@minion-text-size, 16);
+    &:extend( .styles__libre-franklin--bold );
+
+    text-transform: uppercase;
+
+    @media @medium-screens-min {
+        .m-type__type-size(@non-pariel-text-size, 18);
+    }
+}
+
+.movingStory__button-wrapper {
+
+    @media @small-screens-max {
+        flex-wrap: wrap;
+    }
+}
+
+
+.movingStory__button {
+    margin-top: 16px;
+    text-align: left;
+
+    &[data-direction=prev] {
+        /* links__link icon hover overrides */
+        &:hover {
+            .icons__icon {
+                transform: translateX(-10px);
+            }
+        }
+    }
+
+    @media @medium-screens-max {
+        .m-type__type-size(@minion-text-size, 16);
+    }
+
+}

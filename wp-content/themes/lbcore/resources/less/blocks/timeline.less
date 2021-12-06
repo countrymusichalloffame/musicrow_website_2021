@@ -1,0 +1,203 @@
+.timeline {
+    position: relative;
+    padding: 48px 0;
+    background-image: @texture-light;
+
+    @media @medium-screens-min {
+        padding: 72px 0;
+    }
+}
+
+.timeline__heading-title {
+    color: var(--text-color);
+}
+
+.timeline__heading-desc {
+    margin-top: 26px;
+
+    @media @large-screens-min {
+        margin-top: 36px;
+    }
+}
+
+.timeline__sections-wrapper {
+    margin-top: 24px;
+
+    @media @large-screens-min {
+        margin-top: 44px;
+    }
+}
+
+.timeline__section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0 @full-side;
+    padding-left: @double-side;
+    padding-bottom: 40px;
+    border-left: 3px solid var(--text-color); //@gold;
+
+    @media @large-screens-min {
+        padding: 0 5%;
+        padding-bottom: 54px;
+    }
+
+    &[data-show-date="true"] {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -1px;
+            width: 0; 
+            height: 0; 
+            border-bottom: 14px solid transparent;  /* left arrow slant */
+            border-top: 14px solid transparent; /* right arrow slant */
+            border-left: 21px solid var(--text-color); /* bottom, set background color here */
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+
+    &:last-of-type {
+        padding-bottom: 0;
+    }
+}
+
+.timeline__section-year {
+    margin-top: -5px; // to line up with arrows
+    margin-bottom: 15px;
+    padding-top: 6px;
+    
+    @media @medium-screens-min {
+        padding-top: 0;
+        padding-left: @full-side;
+        margin-bottom: 36px;
+    }
+}
+
+.timeline__section-heading {
+    padding-top: 18px;
+
+    @media @large-screens-min {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        padding-top: 36px;
+    }
+
+    [data-media-type=null] & {
+        padding-top: 0;
+    }
+}
+
+
+.timeline__section-title {
+   
+    &:extend( .styles__h5 all );
+    
+    flex: 78%;
+    text-transform: uppercase;
+
+    @media @large-screens-min {
+        .m-type__type-size(@normal-text-size, 20);
+    }
+}
+
+.timeline__section-story-text {
+    margin-top: @half-vertical;
+
+    @media @large-screens-min {
+        margin-top: 0;
+    }
+}
+
+.timeline__section-desc { 
+
+    &:extend( .wysiwyg all );
+
+    margin-top: 8px;
+
+    @media @small-screens-max {
+        .m-type__type-size(@minion-text-size, 18);
+    }
+
+    p {
+        margin-top: 0;
+        
+        &:not(:first-of-type) {
+            margin-top: 8px;
+        }
+    }
+}
+
+.timeline__albumAudio-figure {
+    position: relative;
+
+    /* background record */
+    &::after {
+        .m-background__album-record();   
+        z-index: 0;
+        transform: translateX(24px);
+
+        @media @small-screens-max {
+            transform: translateX(12px);
+        }
+    }
+}
+
+.timeline__albumAudio-img {
+    z-index: 1;
+}
+
+.timeline__figure {
+    position: relative;
+    
+    &[data-circular=true] {
+        .timeline__figure-img {
+            width: 88%;
+            height: 88%;
+            border-radius: 50%;
+
+            @media @medium-screens-max {
+                width: 80%;
+                height: 80%;
+            }
+        }
+
+        figcaption {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 88%;
+            text-align: center;
+
+            @media @medium-screens-max {
+                width: 80%;
+            }
+        }
+    }
+}
+
+
+.timeline__section-simpleAudio {
+    border-top: 2px solid @grey;
+    border-bottom: 2px solid @grey;
+}
+
+
+/** Audio Overrides **/
+.timeline__section {
+    .albumAudio {
+        /* do not show album audio copy */
+        .albumAudio__copy-wrapper {
+            display: none;
+        }
+
+        /* center audio player controls */
+        .albumAudio__flex {
+            max-width: 260px; // to align with audio album
+            justify-content: center;
+        }
+    }
+}

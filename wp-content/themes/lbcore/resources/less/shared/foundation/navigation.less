@@ -1,0 +1,46 @@
+.navigation {
+    position: relative;
+    padding: @half-vertical 0;
+    background: @slate @texture-dark;
+
+    @media @medium-screens-min {
+        padding: @quarter-vertical 0;
+    }
+}
+
+.navigation__flex {
+    width: 100%;
+    padding: 0 20px;
+
+    @media @medium-screens-min {
+        padding: 0 40px;
+    }
+}
+
+.navigation__logo-link {
+    .m-type__type-size(@petite-text-size, @petite-text-size);
+
+    color: @white;
+    text-decoration: none;
+
+    &:focus {
+        outline: 2px dashed @white;
+    }
+}
+
+.navigation__logo {
+    width: 50px;
+    height: 50px;
+
+    @media @medium-screens-min {
+        width: 36px;
+        height: 36px;
+        margin-right: @full-side;
+    }
+
+    &-name {
+        @media @small-screens-max {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,103 @@
+/*
+
+Dynamic Responsive Image
+
+*/
+
+.m-images__dynamic-responsive-image() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.15s linear;
+  
+    &.lazyloaded {
+      opacity: 1;
+    }
+  }
+  
+  .m-images__image-as-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  
+    .no-objectfit & {
+      height: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+  
+  .m-images__figure-ratio(@h: 1, @w: 2) {
+    position: relative;
+    width: 100%;
+    margin: 0;
+  
+    &:before {
+      content: "";
+      width: 100%;
+      display: block;
+      padding-top: percentage(@h / @w);
+    }
+  
+    img {
+      .m-images__image-as-bg();    
+    }
+  }
+  
+  .m-image__gradient-fade(@color: @brand-2, @size: 50%, @fade-direction: right) {
+      &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: @size;
+          z-index: 1;
+          height: 100%;
+          & when (@fade-direction = right) {
+              left: -1px;
+          }
+          & when (@fade-direction = left) {
+              right: -1px;
+              left: unset;
+          }
+          & when (@fade-direction = top) {
+              top: auto;
+              bottom: -1px;
+              left: 0;
+              right: 0;
+          }
+          & when (@fade-direction = bottom) {
+              top: -1px;
+              bottom: auto;
+              left: 0;
+              right: 0;
+          }
+          & when (@fade-direction = top), (@fade-direction = bottom) {
+              width: 100%;
+              height: @size;
+          }
+          background: linear-gradient(to @fade-direction, fade(@color, 100) 10%, fade(@color, 0.6) 90%, fade(@color, 0));
+      }
+  }
+
+  .m-images__full-overlay(@color: rgba(20,20,20,0.6)) {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: @color;
+    }
+  }
+  

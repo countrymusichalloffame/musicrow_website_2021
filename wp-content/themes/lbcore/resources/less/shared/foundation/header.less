@@ -1,0 +1,127 @@
+.header {
+    position: relative;
+    overflow: hidden;
+    max-height: ~"calc(100vh - var(--nav-height))"; // magic: (full height - nav)
+    background: @charcoal @texture-dark;
+
+    @media @small-screens-max {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.header__wrapper {
+    width: 100%;
+
+    @media @large-screens-min {
+        width: 83%;
+        margin: 0 auto;
+    }
+}
+
+.header__slideshow-wrapper {
+    width: 50%;
+    
+    @media @x-small-screens-max {
+        width: round( ( 100% / 3 ), 5 );
+    }
+}
+
+.header__content {
+    width: 50%;
+    
+    @media @x-small-screens-max {
+        width: round( ( ( 100% / 3 ) * 2 ), 5 );
+    }
+    
+    @media @medium-screens-min {
+        width: 100%;
+        max-width: @wrapper-max-in-pixels;
+        height: ~"calc(50vh - var(--nav-height))";
+        padding: 0;
+    }
+
+    @media @large-screens-min {
+        padding: 60px 0;
+    }
+ }
+
+.header__flex {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+    @media @medium-screens-max {
+        text-align: center;
+    }
+
+    @media @large-screens-min {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.header__heading {
+    text-transform: uppercase;
+    padding: 0 20px;
+
+    @media @large-screens-min {
+        flex: 1 0 48%;
+        padding: 0;
+    }
+}
+
+.header__desc {
+    margin: 35px 20px 0;
+    border-style: solid;
+    border-color: @action-gold;
+    border-width: 4px 0 0 0;
+    padding: 20px 0 0 0;
+    
+    @media @large-screens-min {
+        flex: 0 1 50%;
+        margin-top: 0;
+        border-width: 0 0 0 4px;
+        padding: 0 0 0 50px;
+    }
+}
+
+.header__copy {
+    .styles__paragraph--small();
+
+    @media @large-screens-min {
+        .styles__paragraph--large();
+    }
+}
+
+.header__cta {
+    margin: @full-vertical auto;
+
+    @media @small-screens-max {
+        margin: @double-vertical 0 0;
+    }
+    
+    @media @medium-screens-max {
+
+        .links__link--small();
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-self: center;
+        
+        .icons__icon {
+            margin-top: @8px;
+        }
+    }
+
+    @media @large-screens-min {
+        .links__link--large();
+
+        margin-top: 48px;
+    }
+}
+
+

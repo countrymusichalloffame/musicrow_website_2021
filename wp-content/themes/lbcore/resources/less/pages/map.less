@@ -1,0 +1,688 @@
+@sidebar-width: 465px;
+
+.map {
+    position: relative;
+    margin: 0 auto;
+
+    @media @medium-screens-max {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.map__permalink {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: @texture-light;
+    // padding: @double-vertical @double-side; // Setting in .wrappers__permalink instead.
+    transition: transform 250ms ease-in-out;
+    z-index: 3;
+    overflow-y: scroll;
+    transform: translateX(-100%);
+
+    @media @medium-screens-max {
+        height: 67vh;
+    }
+
+    &.is-active {
+        transform: none;
+
+        // adjust popup size when permalink is open
+        @media @large-screens-min {
+            ~ .map__mapbox {
+                .map__popup {
+                    min-width: 140px;
+                    max-width: 15vw !important;
+                }
+            }
+        }
+    }
+
+    &.is-hidden.is-active {
+        transform: translateX(-100%);
+    }
+
+    @media @large-screens-min {
+        width: 57vw;
+        max-width: 1030px;
+
+        .is-sticky & {
+            position: fixed;
+            top: 0;
+        }
+    
+        .is-grounded & {
+            top: auto;
+            bottom: 0;
+        }
+    }
+}
+
+.map__permalink-close {
+    position: sticky;
+    top: @24px; // magic
+    margin-top: @24px;
+    margin-right: @full-vertical;
+    float: right;
+    z-index: 20;
+    //background: @texture-light;
+
+    @media @medium-screens-max {
+        margin-top: 0;
+        top: @18px;
+    }
+
+}
+
+.map__scroll-overlay {
+    width: 100%;
+    // height: 100vh;
+    
+    @media @medium-screens-max {
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+.map__sidebar {
+    position: relative;
+    //width: 100%;
+    padding: 0 @full-side;
+    padding-top: 0;
+    background: @slate @texture-dark;
+
+    z-index: 4; // sits above permalink panel and mapbox controls
+
+    @media @medium-screens-max {
+        max-height: 33vh;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        padding: 0 @half-side;
+    }
+
+    @media @large-screens-min {
+        position: relative;
+        width: 26%; //33.5%;
+        max-width: @sidebar-width;
+        height: auto;
+        min-height: 100vh;
+        padding: 0 @46px;
+        // overflow-y: scroll;
+    }
+
+    &-controls {
+        position: relative;
+        background: @slate @texture-dark;
+        padding: @half-vertical 0;
+        padding-bottom: @quarter-vertical;
+
+        @media @medium-screens-max {
+            position: sticky;
+            left: 0;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            
+            margin-left: @half-side;
+            margin-right: @half-side;
+            padding: 4px 0;
+        }
+
+        @media @large-screens-min {
+            position: sticky;
+            top: 0;
+            z-index: 4;
+        }
+    }
+
+    &-label {
+        .m-type__type-size(@non-pariel-text-size, 16);
+
+        letter-spacing: 1px;
+        color: @white;
+        margin-right: @full-side;
+
+        @media @small-screens-max {
+            .m-type__type-size(@micro-text-size, 12);
+        }
+
+        @media @large-screens-min {
+            padding-top: @14px;
+        }
+    }
+
+    &-desc {  
+        margin-top: 8px;
+
+        @media @small-screens-max {
+            .m-type__type-size(@micro-text-size, 12);
+        }
+
+        @media @medium-screens-max {
+            flex: 0 0 100%;
+            margin-top: 0;
+        }
+
+        /* toggle description depending on which sort is active */
+        &[data-sort=places] {
+            .map__sidebar-controls[data-active-sort=people] & {
+                display: none;
+            }
+        }
+
+        &[data-sort=people] {
+            .map__sidebar-controls[data-active-sort=places] & {
+                display: none;
+            }
+        }
+    }
+}
+
+.map__sort-btn {
+
+    text-transform: uppercase;
+
+    @media @medium-screens-max {
+        .button__no-button();
+        .styles__sequel;
+        .m-type__type-size(@micro-text-size, 12);
+
+        color: @white;
+        margin-top: 0;
+        margin-right: @half-side;
+        padding: 0;
+
+        &.is-active {
+            color: @action-gold;
+        }
+    }
+
+    @media @large-screens-min {
+        .button__full-width();
+        .m-type__type-size(@non-pariel-text-size, 16);
+
+        border: 4px solid @action-gold;
+        margin-top: 12px;
+    
+        &:not(.is-active) {
+            color: @gold;
+            background: transparent;
+            border-color: @gold;
+        }
+
+        &:hover {
+            background: @gold;
+            color: @charcoal;
+        }
+    }
+
+    &:focus {
+        outline: 2px dashed @white;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+/* location cards */
+.map__cards {
+    display: none;
+    margin: -@full-vertical 0 0;
+
+    @media @medium-screens-max {
+        height: 90%;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: @full-vertical;
+    }
+
+    @media @large-screens-min {
+        padding-bottom: @full-vertical;;
+    }
+    
+    [data-active-sort="places"] ~ &[data-by="places"],
+    [data-active-sort="people"] ~ &[data-by="people"] {
+        display: block;
+        
+        @media @medium-screens-max {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+.map__card-item {
+    margin: @full-vertical 0;
+
+    &:first-of-type {
+        @media @large-screens-min {
+            padding-top: @half-vertical;
+        }
+    }
+
+    @media @small-screens-max {
+        max-width: @120px;
+    }
+
+    @media @medium-screens-max {
+        flex: 40%;
+        margin: 0;
+        padding: 0 @quarter-side;
+    }
+
+    @media @small-screens-max {
+        flex: 1 0 50%;
+    }
+}
+
+.map__card {
+    position: relative;
+    width: 100%;
+    border: 4px solid transparent;
+    padding: 0;
+    text-align: left;
+    transition: all .15s @easeInOutCubic;
+
+    @media @small-screens-max {
+        border-width: 2px;
+    }
+
+    &.is-active,
+    &:hover,
+    &:focus {
+        border-color: @action-gold;
+    }
+    
+    &:focus{
+        outline: 2px dashed @white;	
+        outline-offset: 2px;
+        
+        &:not(:focus-visible) {
+            outline: none; // TODO? accessibility
+        }
+    }
+
+    // people card specific
+    &[data-mb-layer-sort=people] {
+        display: flex;
+        align-items: center;
+
+        @media @medium-screens-max {
+            flex-direction: column;
+        }
+
+        @media @medium-screens-min {
+            flex-wrap: wrap;
+            padding: @12px 0;
+        }
+
+        &:hover,
+        &:focus,
+        &.is-active {
+            border-color: transparent;
+
+            .map__card-img--people {
+                border-color: var(--background-color-secondary);
+            }
+
+            .map__card-name--last {
+                color: var(--text-color-inverse);
+            }
+        
+        }
+    }
+}
+
+.map__card-figure {
+    .m-images__figure-ratio(@h: 244, @w: 366);
+}
+
+.map__card-figure--round {
+    
+    flex: 0 0 auto;
+    width: @60px;
+    height: @60px;
+
+    @media @medium-screens-only {
+        max-width: @90px;
+        max-height: @90px;
+    }
+
+    @media @large-screens-min {
+        min-width: @100px;
+        min-height: @100px;
+
+        max-width: @164px;
+        max-height: @164px;
+
+        margin-right: @18px;
+    }
+
+    @media @wrapper-at-maximum {
+        min-width: @140px;
+        min-height: @140px;
+        margin-right: @32px;
+    }
+}
+
+.map__card-img--people {
+    border: 4px solid transparent;
+    border-radius: 50%;
+    transition: all .15s @easeInOutCubic;
+
+    @media @small-screens-max {
+        border-width: 2px;
+    }
+}
+
+.map__card-text {
+    position: relative;
+    padding: @4px @2px;
+    color: @white;
+
+    @media @large-screens-min {
+        display: flex;
+
+        padding: @15px @20px;
+        background: @charcoal;
+    }
+}
+
+.map__card-order {
+
+    .m-type__type-size(@primer-text-size, 22);
+
+    letter-spacing: 2px;
+    margin-right: @20px;
+
+    @media @medium-screens-max {
+
+        .m-type__type-size(@petite-text-size, 16);
+
+        text-shadow: 1px 1px 2px rgb(0,0,0);						
+    
+        position: absolute;
+        top: -32px; 
+        left: 0;
+        margin-right: 0;
+        padding: @8px;
+    }
+}
+
+.map__card-name {
+    &:extend(.styles__libre-franklin--bold all);
+    .m-type__type-size(@micro-text-size, 12);
+
+    margin-top: 0;
+    transition: color .15s @easeInOutCubic;
+
+    @media @large-screens-min {
+        .styles__sequel();
+        .styles__h7();
+    }
+
+    [data-mb-layer-sort=places].is-active &,
+    [data-mb-layer-sort=places]:hover & {
+        color: @action-gold;
+    }
+
+    [data-mb-layer-sort=people] & {
+        @media @medium-screens-max {
+            margin-top: @8px;
+            text-align: center;
+        }
+    }
+}
+
+.map__card-name--last {
+
+    color: @grey;
+    text-transform: uppercase;
+    transition: all .15s @easeInOutCubic;
+
+    .is-active & {
+        color: var(--text-color-inverse);
+    }
+
+    @media @medium-screens-max {
+        .m-type__type-size(@columbian-text-size, 28);
+    }
+
+    @media @large-screens-min {
+        .m-type__type-size(@paragon-text-size, 44);
+    }
+}
+
+.map__card-desc {
+    .m-type__type-size(@micro-text-size, 12);
+
+    @media @medium-screens-min {
+        .m-type__type-size(@petite-text-size, 18);
+    }
+}
+
+.map__sticky {
+    width: 100vw; // TODO: 100vw when ready
+    height: 67vh; // temp
+    
+    @media @large-screens-min {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 74%; //66.5%;
+        height: 100%;
+    }
+}
+
+.map__mapbox {
+    position: absolute !important; // overrides mapbox Styles
+    width: 100%;
+    height: 100vh;
+
+    @media @medium-screens-max {
+        height: 67vh;
+    }
+
+    @media @large-screens-min {
+        .is-sticky & {
+            position: fixed !important; // overrides mapbox Styles
+            top: 0;
+        }
+
+        .is-grounded & {
+            top: auto;
+            bottom: 0;
+        }
+
+        /* bring markers to the right of permalink when permalink is open */
+        .map.is-sticky .map__permalink.is-active:not(.is-hidden) ~ & {
+            right: 0;
+            width: 45.5% !important;
+        }
+
+        .map:not(.is-sticky) .map__permalink.is-active:not(.is-hidden) ~ & {
+            right: 0;
+            width: 62% !important;
+        }
+    }
+
+    /* error message */
+    .map.has-error & {
+        &::after {
+            content: 'Error detected in 3rd party map software. Please try again soon.';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,.8);
+            color: @white;
+            padding: 20% 30px;
+            z-index: 2;
+
+            .styles__h6();
+        }
+    }
+}
+
+
+/* markers */
+.map__marker {
+    
+    &:extend( .styles__sequel all );
+    .m-type__type-size(@normal-text-size, 22);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+
+    text-align: center;
+    background-color: var(--icon-color);
+    border: 2px solid @charcoal; 
+    border-radius: 50%;
+    cursor: pointer;
+
+    @media @small-screens-max {
+        .m-type__type-size(@non-pariel-text-size, 17);
+
+        width: 28px;
+        height: 28px;
+    }
+
+    &:hover,
+    &:focus,
+    &.is-active {
+        background-color: var(--background-color);
+    }
+
+    &:focus {
+        outline: 2px dashed @charcoal;
+        outline-offset: 2px;
+    }
+
+    &:not(:focus-visible) {
+        outline: none;
+    }
+
+    &.is-active {
+        color: @white;
+        z-index: 2;
+    }
+
+    /*-- only show the markers for the active map layer --*/
+    &:not(.is-active-layer) {
+        display: none;
+    }
+}
+
+
+
+
+
+/** Map Popups
+  * 
+  * Need to use the `!important` tag becasue we are overriding mapbox properties at times.
+  */
+.map__popup {
+    min-width: @414px;
+
+    .m-shadow__box-shadow(
+		@20px 
+		@40px, 
+		@60px, 
+		@shadow-color: rgba(0,0,0,.5)
+	);
+
+    @media @small-screens-max {
+        min-width: @320px;
+        //transform: translate(-50%, 0px) translate(190px, 32px) !important;
+    }
+
+    @media @medium-screens-max {
+        max-width: 90% !important;
+    }
+
+    @media @large-screens-min {
+        max-width: @820px !important;
+    }
+
+    &--people {
+        width: @710px;
+        z-index: 2;
+
+        @media @small-screens-max {
+            top: auto !important;
+            bottom: 0 !important;
+            min-width: 100%;
+            max-width: 100vw !important;
+            transform: none !important;
+        }
+
+        @media @medium-screens-only {
+            top: -10px !important;
+        }
+    }
+}
+
+.mapboxgl-popup-content {
+    .m-shadow__box-shadow(@shadow-color: rgba(0,0,0,0.5));
+
+    background: @slate @texture-dark !important; 
+
+    .map__popup--people & {
+        padding: 0;
+        background: @white !important;
+    }
+}  
+
+.map__popup-content {
+    padding: @half-vertical @half-side;
+}
+
+.map__popup-heading {
+    &:extend( .styles__bodoni--regular );
+    .m-type__type-size(@columbian-text-size, 32);
+
+    color: @action-gold;
+}
+
+.map__popup-text {
+    &:extend(.styles__h7 all);
+
+    color: @white;
+    margin-top: 8px;
+}
+
+.map__popup-cta {
+
+    &:extend( .links__link all );
+    &:extend( .links__link--dark all );
+
+    margin-top: 24px;
+    text-align: left;
+
+    @media @small-screens-max {
+        .links__link--small();
+    }
+}
+
+/* dont show popup caret */
+.mapboxgl-popup-tip {
+    display: none;
+}
+
+/* zoom controls */
+.mapboxgl-ctrl-bottom-right {
+    .is-sticky & {
+        position: fixed !important;
+    }
+}

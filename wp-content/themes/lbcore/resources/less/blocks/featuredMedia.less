@@ -1,0 +1,33 @@
+.featuredMedia {
+    position: relative;
+    padding: 48px 0;
+    background: @slate @texture-dark;
+
+    @media @medium-screens-min {
+        padding: 72px 0;
+    }
+}
+
+.featuredMedia__heading {
+    margin-top: 14px;
+    margin-top: @full-vertical;
+
+    @media @large-screens-min {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: @full-vertical;
+    }
+}
+
+.featuredMedia__story-text {
+    margin-top: 4px;
+}
+
+.featuredMedia__heading-title {
+    flex: 78%;
+}
+
+.featuredMedia__wysiwyg {
+    margin-top: @half-vertical;
+}

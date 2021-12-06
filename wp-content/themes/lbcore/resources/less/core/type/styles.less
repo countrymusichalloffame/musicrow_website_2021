@@ -1,0 +1,276 @@
+/*
+
+Font Classes
+
+Each font family and weight used in the site is given its own LEGO-block class
+to enable quick use and modularity.
+
+*/
+
+// Samples:
+
+// .museo-slab-300 {
+//     font-family: @museo-slab-300;
+// }
+// .proxima-nova-regular {
+//     font-family: @proxima-nova-regular;
+// }
+
+// Libre Franklin 
+.styles__libre-franklin--light,
+.styles__libre-franklin--regular,
+.styles__libre-franklin--bold,
+.styles__libre-franklin--black {
+    font-family: @libre-franklin;
+}
+
+.styles__libre-franklin--light {
+    font-weight: 300;
+}
+
+.styles__libre-franklin--regular {
+    font-weight: 400;
+}
+
+.styles__libre-franklin--bold {
+    font-weight: 700;
+}
+
+.styles__libre-franklin--black {
+    font-weight: 900;
+}
+
+// Bodoni
+.styles__bodoni--regular,
+.styles__bodoni--italic {
+    font-family: @bodoni;
+    font-weight: 400;
+}
+
+.styles__bodoni--italic {
+    font-style: italic;
+}
+
+// Sequel 100 Wide
+.styles__sequel {
+    font-family: @sequel100;
+    font-weight: 400;
+}
+
+// CG Triumvirate
+.styles__cgTriumvirate {
+    font-family: @cgTriumvirate;
+    font-weight: 400;
+}
+
+/*
+
+
+Heading Styles
+
+In Motif, typography is broken into pieces that separate skin from structure.
+In this case, that means the font sizing (structure) is separate from the 
+styling (skin) -- which includes font family, color, etc.
+
+Heading styles are some of the type skins, and we start out with 
+`.primary-heading` (which is also the `h`-tag default) and 
+`.secondary-heading`. Add as necessary.
+
+````primary-heading
+<h1 class="primary-heading">Primary Heading</h1>
+````
+
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 0;
+}
+
+.styles__h1  {
+
+    .m-type__type-size(@meridian-text-size, 44);
+    &:extend(.styles__cgTriumvirate);
+
+    letter-spacing: 1px;
+
+    @media @medium-screens-min {
+        .m-type__type-size(@super-canon-text-size, 70);
+        .m-type__letter-spacing(1, @super-canon-text-size, px);
+        
+    }
+}
+
+.styles__h1--long  {
+    &:extend(.styles__cgTriumvirate);
+    .m-type__type-size(@meridian-text-size, 44);
+
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@inch-text-size, 100);
+
+        letter-spacing: 2px;
+    }
+}
+
+
+.styles__h2  {
+
+    &:extend(.styles__bodoni--italic);
+    .m-type__type-size(@tertia-text-size, 34);
+
+    letter-spacing: -0.5px;
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@meridian-text-size, 48);
+    }
+}
+
+.styles__h3  {
+    
+    &:extend(.styles__sequel);
+    .m-type__type-size(@primer-text-size, 26);
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@tertia-text-size, 38);
+    }
+}
+
+.styles__h4  {
+
+    &:extend(.styles__sequel);
+    .m-type__type-size(@normal-text-size, 20);
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@columbian-text-size, 32);
+    }
+}
+
+
+.styles__h5  {
+
+    &:extend(.styles__sequel);
+    .m-type__type-size(@non-pariel-text-size, 16);
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@primer-text-size, 26);
+    }
+}
+
+.styles__h6  {
+
+    &:extend(.styles__sequel);
+    .m-type__type-size(@minion-text-size, 14);
+    
+    @media @medium-screens-min {
+        .m-type__type-size(@normal-text-size, 20);
+    }
+}
+
+.styles__h7  {
+
+    .m-type__type-size(@petite-text-size, 18);
+    &:extend(.styles__sequel);
+}
+
+/*
+
+Body Text
+
+Another type style, but this mimicks the default body text of the site.
+
+````body-text
+<p>This is a paragraph of text. Some of the text may be <em>emphasised</em> and some it might even be <strong>strongly emphasised</strong>. Occasionally <q>quoted text</q> may be found within a paragraph &hellip;and of course <a href="#">a link</a> may appear at any point in the text. The average paragraph contains five or six sentences although some may contain as little or one or two while others carry on for anything up to ten sentences and beyond.</p>
+````
+
+*/
+
+body,
+.styles__body-text {
+    &:extend( .styles__libre-franklin--regular);
+    &:extend( .hierarchy__normal-text--long);
+}
+
+/* 
+
+Paragraph 
+
+*/
+
+.styles__paragraph--large {
+
+    &:extend( .styles__libre-franklin--regular);
+    .m-type__type-size(@normal-text-size, 28);
+
+    @media @medium-screens-min {
+        .m-type__type-size(@primer-text-size, 32);
+    }
+}
+
+.styles__paragraph--regular {
+
+    &:extend( .styles__libre-franklin--regular);
+    .m-type__type-size(@petite-text-size, 24);
+
+    @media @medium-screens-min {
+        .m-type__type-size(@normal-text-size, 28);
+    }
+}
+
+.styles__paragraph--small {
+
+    &:extend( .styles__libre-franklin--regular);
+    .m-type__type-size(@minion-text-size, 18);
+
+    @media @medium-screens-min {
+        .m-type__type-size(@petite-text-size, 26);
+    }
+}
+
+.styles__paragraph--caption {
+
+    &:extend( .styles__libre-franklin--regular);
+    .m-type__type-size(@micro-text-size, 16);
+
+    @media @medium-screens-min {
+        .m-type__type-size(@non-pariel-text-size, 22);
+    }
+}
+
+
+/*
+
+Blockquote
+
+A basic blockquote.
+
+````blockquote
+<figure class="blockquote">
+    <blockquote>
+        At last we will reveal ourselves to the the Jedi. At last we will have 
+        our revenge.
+    </blockquote>
+    <figcaption class="blockquote__cite">Darth Maul</figcaption>
+</figure>
+````
+
+*/
+
+.styles__blockquote {
+    padding-left: @full-side;
+
+    blockquote {
+        padding: 0;
+    }
+
+    &-cite {
+        display: block;
+
+        &:before {
+            content: "\2014";
+        }
+    }
+}

@@ -1,0 +1,123 @@
+/*********************************
+ * Locations
+ *******************************/
+
+ /** Running list of building types:
+ 
+    studio : Major Label Studio/ Headquarters
+    publisher : Music Publisher
+    rights : Performing Rights Organization
+    music-label : Music Label
+    indie-studio : Independent Studio
+    union : Musicians Union
+    museum : Museum
+    music-office : Music Business Office Building
+    home-turned-office : Home Turned Office Building
+
+**/
+ 
+
+/** 
+  * TEAL
+  * studio, indie-studio
+  */
+.theme--teal,
+.theme--studio,
+.theme--indie-studio {
+    --background-color: @teal;
+    --background-color-secondary: @light-teal;
+    --background-overlay: rgba(0, 153, 136, .8);
+
+    --text-color: @teal;
+    --text-color-inverse: @light-teal;
+
+    --text-primary: @primary-text-color;
+    --text-primary-inverse: @inverse-text-color;
+
+    --icon-color: @light-teal;
+}
+
+
+/** 
+  * BLUE
+  * studio, indie-studio
+  */
+.theme--blue,
+.theme--publisher,
+.theme--music-label {
+    --background-color: @blue;
+    --background-color-secondary: @light-blue;
+    --background-overlay: rgba(0, 144, 175, .8);
+
+    --text-color: @blue;
+    --text-color-inverse: @light-blue;
+
+    --text-primary: @primary-text-color;
+    --text-primary-inverse: @inverse-text-color;
+
+    --icon-color: @light-blue;
+}
+
+
+/** 
+  * RED
+  * rights, union
+  */
+  .theme--red,
+  .theme--union,
+  .theme--rights {
+      --background-color: @red;
+      --background-color-secondary: @light-rust;
+      --background-overlay: rgba(208,64,26,0.8);
+  
+      --text-color: @red; // light backgrounds
+      --text-color-inverse: @light-rust; // dark backgrounds
+     
+      --text-primary: @primary-text-color;
+      --text-primary-inverse: @inverse-text-color;
+  
+      --icon-color: @light-rust;
+  }
+
+/** 
+  * GOLD
+  * museum, default.
+  */
+.theme--gold,
+.theme--musem,
+.theme--default {
+    --background-color: @gold;
+    --background-color-secondary: @action-gold;
+    --background-overlay: rgba(240,178,58,0.8);
+
+    --text-color: @gold; // light backgrounds
+    --text-color-inverse: @action-gold; // dark backgrounds
+   
+    --text-primary: @primary-text-color;
+    --text-primary-inverse: @primary-text-color;
+
+    --icon-color: @action-gold;
+}
+
+/** 
+  * GREEN
+  * music-offic, home-turned-office
+  */
+  .theme--green,
+  .theme--music-office,
+  .theme--home-turned-office {
+      --background-color: @green;
+      --background-color-secondary: @light-green;
+      --background-overlay: rgba(98,127,37,0.8);
+  
+      --text-color: @green; // light backgrounds
+      --text-color-inverse: @light-green; // dark backgrounds
+     
+      --text-primary: @primary-text-color;
+      --text-primary-inverse: @primary-text-color;
+  
+      --icon-color: @light-green;
+  }
+
+
+

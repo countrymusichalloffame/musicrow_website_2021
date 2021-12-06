@@ -1,0 +1,79 @@
+.mediaGalleryAudio {
+    display: flex;
+    flex-direction: column;
+    margin: @full-vertical 0;
+
+    &[data-flex-dir=col-reverse] {
+        @media @large-screens-min {
+            flex-direction: column-reverse;
+        }   
+    }
+}
+
+.mediaGalleryAudio__media {
+    position: relative;
+}
+
+.mediaGalleryAudio__figure {
+
+    .m-shadow__box-shadow();
+
+    [data-flex-dir=col] & {
+        margin-bottom: 20px;
+    }
+
+    /* background record */
+    &::after {
+        .m-background__album-record();      
+
+        .is-current & {
+            transform: translateX(24px);
+
+            @media @small-screens-max {
+                transform: translateX(12px);
+            }
+        }
+    }
+}
+
+.mediaGalleryAudio__icon {
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+
+    @media @large-screens-min {
+        width: 80px;
+        height: 80px;
+
+        .icons__icon {
+            width: 44px;
+            height: 44px;
+        }
+    }
+
+    [data-audio-type="interview"] & {
+        background: @light-rust;
+    }
+}
+
+.mediaGalleryAudio__content {
+    &:extend(.mediaGallery__slide-heading all);
+}
+
+.mediaGalleryAudio__controls {
+    display: flex;
+    margin-right: 15px;
+}
+
+.mediaGalleryAudio__control-btn {
+    width: 21px;
+    height: 21px;
+}
+
+.mediaGalleryAudio__title {
+    &:extend(.mediaGallery__slide-title all);
+}
+
+.mediaGalleryAudio__copy {
+    &:extend(.mediaGallery__slide-copy all);
+}

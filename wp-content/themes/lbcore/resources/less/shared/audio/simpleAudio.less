@@ -1,0 +1,44 @@
+
+.simpleAudio__flex {
+    padding: 20px 0;
+}
+
+.simpleAudio__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 40px;
+
+    width: 40px;
+    height: 40px;
+    margin-right: @full-side;
+
+    border-radius: 50%;
+    border: 2px solid @charcoal;
+
+    [data-audio-type="song"] & {
+        background: @action-gold;
+    }
+
+    [data-audio-type="interview"] & {
+        background: @light-rust; // fall back 
+        background: var(--background-color-secondary);
+    }
+
+    .icons__icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.simpleAudio__copy-title {
+    &:extend( .styles__h6 all );
+
+    @media @small-screens-max {
+        .styles__h5();
+    }
+}
+
+.simpleAudio__copy-desc {
+    margin-top: 4px;
+}

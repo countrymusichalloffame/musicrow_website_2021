@@ -1,0 +1,214 @@
+/*
+
+Link Styles
+
+Very basic stuff. The primary link color can be altered in the `config.less` 
+file. Hover, focus, and current states are accounted for.
+
+*/
+
+a {
+	&:focus,
+	&:active,
+	&:hover {
+		outline: 0;
+	}
+
+	&:disabled {
+		color: @disabled-link;
+		cursor: not-allowed;
+	}
+}
+
+/**
+ * Unlink
+ * Basic class to remove some link styling.
+ */
+ .links__unlink {
+	text-decoration: none;
+}
+
+
+/** 
+  * Links__link: Standard Hyperlinks
+ */
+.links__link {
+
+	.m-type__type-size(@petite-text-size, 18);
+	&:extend(.styles__sequel);
+	
+	letter-spacing: 2px;
+	color: @primary-link-color;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: all .35s @easeInOutCubic;
+	padding-right: 10px;
+	
+
+	.icons__icon {
+		transition: transform .35s @easeInOutCubic;
+	}
+
+	&:hover {
+		color: @primary-link-hover;
+
+		.icons__icon {
+            transform: translateX(10px);
+        }
+	}
+
+	&:focus {
+		outline: 2px dashed @charcoal;	
+	}
+}
+
+.links__link--large {
+	.m-type__type-size(@normal-text-size, 22);
+	letter-spacing: 3.6px;
+}
+
+.links__link--small {
+	.m-type__type-size(@non-pariel-text-size, 17);
+	text-transform: none;
+	letter-spacing: 1px;
+}
+
+.links__link--dark {
+	color: @primary-link-color--dark;
+
+	&:hover {
+		color: @primary-link-hover--dark;
+	}
+
+	&:focus {
+		color: @primary-link-color--dark;
+		outline-color: @white;
+	}
+}
+
+
+/**
+  * Inline Links
+ */
+.links__inline {
+	
+	&:extend(.styles__bodoni--italic);
+	.m-type__type-size(@normal-text-size, 28);
+
+	color: @primary-link-color;
+	text-decoration: underline;
+	transition: all .35s @easeInOutCubic;
+
+	&:hover {
+		color: @primary-link-hover;
+
+	}
+
+	&:focus {
+		outline: 2px dashed @charcoal;	
+	}
+}
+
+.links__inline--large {
+	.m-type__type-size(@primer-text-size, 28);
+}
+
+.links__inline--normal {
+	.m-type__type-size(@normal-text-size, 28);
+}
+
+.links__inline--small {
+	.m-type__type-size(@non-pariel-text-size, 28);
+}
+
+.links__inline--tiny {
+	.m-type__type-size(@micro-text-size, 28);
+	&:extend(.styles__libre-franklin--regular);
+}
+
+.links__inline--dark {
+	color: @primary-link-color--dark;
+
+	&:hover {
+		color: @primary-link-hover--dark;
+	}
+
+	&:focus {
+		outline-color: @white;
+	}
+}
+
+/** 
+ * Header Links 
+ */
+.links__header {
+
+	&:extend(.links__link all);
+	&:extend(.links__link--dark all);
+
+	color: @white;
+
+	.icons__icon {
+		color: @action-gold;
+		transform: rotate(90deg);
+	}
+
+	&:hover {
+		color: @action-gold;
+		
+		.icons__icon{
+			transform: rotate(90deg);
+		}
+	}
+}
+
+/** 
+ * Footer Links 
+ */
+ .links__footer {
+
+	&:extend( .links__link all );
+	&:extend( .links__link--dark all );
+
+	.m-type__type-size(@petite-text-size, 16);
+
+	font-family: @libre-franklin;
+	color: @white;
+	text-transform: none;
+
+	.icons__icon {
+		color: @action-gold;
+		margin-top: 16px;
+	}
+
+	&:hover {
+		.icons__icon{
+			transform: translateY(10px);
+		}
+	}
+
+	&:hover,
+	&:focus {
+		color: @action-gold;
+	}
+}
+
+/**
+ * Skip-To Link
+ */
+.links__skip-to {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+
+    &,
+    &:focus {}
+
+    &:hover {}
+
+    &:not(:focus) {
+        .m-presentational__visually-hidden();
+    }
+}

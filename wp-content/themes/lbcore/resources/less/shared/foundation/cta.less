@@ -1,0 +1,124 @@
+.cta {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
+
+    @media @large-screens-min {
+        height: 100vh;
+    }
+}
+
+.cta__border {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+
+    &:before {
+        content: '';
+        .m-textures--light();
+        left: 45px;
+        
+        @media @medium-screens-max {
+           left: 0;
+        }
+    }
+
+    @media @medium-screens-min {
+        flex-direction: row;
+        align-items: center;
+        width: 83%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media @wrapper-at-maximum {
+        width: 100%;
+    }
+}
+
+.cta__logos-wrapper {
+    display: flex;
+
+    @media @medium-screens-max {
+        position: absolute;
+        width: 100%;
+        top: -50px;
+        justify-content: center;
+    }
+
+    @media @large-screens-min {
+        flex: 50%;
+    }
+}
+
+.cta__logo-figure {
+    width: 120px;
+    height: 120px;
+    
+    @media @large-screens-min {
+        width: 50%;
+        height: auto;
+    }
+    
+    &:last-of-type {
+        margin-left: 20px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+}
+
+.cta__textLockup {
+    padding: 90px 20px 48px 20px;
+    text-align: center;
+
+    @media @large-screens-min {
+        flex: 50%;
+        padding: 111px 72px 111px 98px;
+        text-align: left;
+    }
+}
+
+.cta__heading {
+    .m-type__type-size(@primer-text-size, 26);
+
+    text-transform: uppercase;
+    
+    @media @large-screens-min {
+        .m-type__type-size(@meridian-text-size, 52);
+    }
+
+}
+
+.cta__link {
+
+    @media @large-screens-min {
+        .links__link--large();
+    }
+}
+
+.cta__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -2;
+
+    .m-images__full-overlay(@color: rgba(20,20,20,0.52));
+
+    &[data-background=color] {
+        background-color: @red; // TODO: set theme color;
+    }
+}
+
+.cta__background-figure {
+    max-height: 100vh;
+    min-height: 100vh;
+}

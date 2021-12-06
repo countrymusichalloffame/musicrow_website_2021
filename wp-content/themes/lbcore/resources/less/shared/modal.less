@@ -1,0 +1,141 @@
+.modal {
+    &.is-open {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: @charcoal;
+        background-image: @texture-dark;
+        cursor: default;
+        z-index: 10;
+    }
+}
+
+.modal__wrapper {
+    position: absolute;
+    top: @half-vertical;
+    bottom: @half-vertical;
+    left: @half-vertical;
+    right: @half-vertical;
+
+    @media @large-screens-min {
+        top: @full-vertical;
+        bottom: @full-vertical;
+        left: @full-vertical;
+        right: @full-vertical;
+    }
+}
+
+.modal__figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+
+    &:not(.is-zoomed) {
+        justify-content: center;
+    }
+}
+
+.modal__figure-img {
+    position: relative;
+    max-height: 90vh;
+    width: auto;
+
+    .is-zoomed & {
+        transform: scale(1.5);
+        top: 25%;
+    }
+}
+
+.modal__figure-caption {
+    max-width: 84%;
+    margin-top: @8px;
+}
+
+.modal__open {
+    &:extend( .button__no-button all );
+
+    cursor: zoom-in;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    &:focus {
+        outline: 2px dashed @charcoal;
+        outline-offset: 2px;
+    }
+}
+
+.modal__close {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 11;
+
+    .m-shadow__box-shadow(@shadow-color: rgba(0,0,0,.6));
+
+    .is-open & {
+        display: block;
+    }
+    
+    .icons__icon {
+        color: @gold;
+    }
+}
+
+.modal__zoom {
+    position: absolute;
+    bottom: 4vh; //0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid @gold;
+    border-radius: 4px;
+    z-index: 11;
+
+    .m-shadow__box-shadow(@shadow-color: rgba(0,0,0,.6));
+}
+
+.modal__zoom-btn {
+
+    &:extend(.button__close all);
+
+    display: none;
+    border-radius: 0;
+
+    &:not(:focus) {
+        border-color: transparent;
+        //outline-color: transparent; 
+    } 
+
+    .is-open & {
+        display: block;
+    }
+
+    .icons__icon {
+        color: @gold;
+    }
+
+    &[data-zoom="zoom-in"] {
+        cursor: zoom-in;
+        border-bottom: none;
+
+    }
+
+    &[data-zoom="zoom-out"] {
+        cursor: zoom-out;
+        border-top: 2px solid @gold;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+

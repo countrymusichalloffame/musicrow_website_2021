@@ -1,0 +1,63 @@
+.albumAudio {
+
+    @media @large-screens-min {
+        margin: @full-vertical 0;
+    }
+}
+
+.albumAudio__flex {
+    display: flex;
+    width: 100%;
+    max-width: 200px; // no bigger than album image
+
+    .audioPlayer__wrapper {
+        margin-top: 0;
+        margin-right: 12px;
+    }
+
+    .audioPlayer__button[data-control=play] {
+        margin-right: 0;
+    }
+}
+
+.albumAudio__title {
+    .m-type__type-size(@non-pariel-text-size, 16);
+}
+
+.albumAudio__desc {
+    .m-type__type-size(@minion-text-size, 14);
+
+    margin-top: 4px;
+}
+
+.albumAudio__figure {
+    position: relative;
+    width: @album-art-size;
+    height: @album-art-size;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    .m-shadow__box-shadow();
+
+    @media @small-screens-max {
+        width: @album-art-size--mobile;
+        height: @album-art-size--mobile;
+    }
+
+    /* background record */
+    &::after {
+        
+        .m-background__album-record();   
+
+        .is-current & {
+            transform: translateX(24px);
+
+            @media @small-screens-max {
+                transform: translateX(12px);
+            }
+        }
+    }
+}
+
+

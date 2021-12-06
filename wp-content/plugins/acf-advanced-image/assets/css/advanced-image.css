@@ -1,0 +1,43 @@
+.acf-image-uploader .button {
+    margin-top: 10px;
+}
+
+.lb__adv-img-container {
+    position: relative;
+    overflow: hidden;
+
+}
+.lb__adv-img-marker {
+    display: none;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%,-50%);
+    border-radius: 1000em;
+    z-index: 1;
+}
+.lb__adv-img-marker:before {
+    content: "";
+    position: absolute;
+    width: 2000px;
+    height: 2px;
+    background-color: #a6ce39;
+    top: 24px;
+    left: -1000px;
+}
+
+.lb__adv-img-marker:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2000px;
+    background-color: #a6ce39;
+    top: -1000px;
+    left: 25px;
+}
+
+.lb__adv-img {
+    display: block;
+    width: 100%;
+    max-width: none;
+}

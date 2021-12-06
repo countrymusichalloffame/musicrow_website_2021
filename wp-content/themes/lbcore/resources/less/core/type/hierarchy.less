@@ -1,0 +1,211 @@
+/*
+
+Typographic Scale
+
+The building blocks for the site's type sizes. Almost exclusively, an element's
+font size is assigned with one of these classes. If a new size is needed, a new
+class is created here so it can be used and reused elsewhere.
+
+The list of type sizes can grow or shrink, but be vigilant in keeping the
+number of sizes to a minimum. A nice rule of thumb is that no two sizes can one
+pixel in difference (forcing you to choose one over the other, giving you one
+class where you previously had two).
+
+````typographic-scale
+<p class="hierarchy__canon-text">Canon Text (38px)</p>
+<p class="hierarchy__paragon-text">Paragon Text (30px)</p>
+<p class="hierarchy__primer-text">Primer Text (24px)</p>
+<p class="hierarchy__tertia-text">Tertia Text (18px)</p>
+<p class="hierarchy__normal-text">Normal Text (14px)</p>
+<p class="hierarchy__petite-text">Petite Text (12px)</p>
+````
+
+Long Modifiers
+
+The type sizes are given the `--long` modifier, allowing you to use
+each type size with varying line heights.
+
+    <p class="hierarchy__petite-text">I'm just a small bit of text, my `line-height`
+    can be tight.</p>
+
+    <p class="hierarchy__petite-text--long">I'm a long paragraph, so my `line-height`
+    should be longer to enhance legibility. ... </p>
+
+*/
+
+.hierarchy__long-text {
+    line-height: 1.5;
+}
+
+#mixed {
+    .hierarchy__inch-text() {
+        .m-type__type-size(@inch-text-size, 100);
+    }
+    
+    .hierarchy__super-canon-text() {
+        .m-type__type-size(@super-canon-text-size, 80);
+    }
+
+    .hierarchy__canon-text() {
+        .m-type__type-size(@canon-text-size, 89);
+    }
+
+    .hierarchy__meridian-text() {
+        .m-type__type-size(@meridian-text-size, 52);
+    }
+
+    .hierarchy__paragon-text() {
+        .m-type__type-size(@paragon-text-size, 44);
+    }
+
+    .hierarchy__tertia-text() {
+        .m-type__type-size(@tertia-text-size, 40);
+    }
+
+    .hierarchy__columbian-text() {
+        .m-type__type-size(@columbian-text-size, 34);
+    }
+
+    .hierarchy__primer-text() {
+        .m-type__type-size(@primer-text-size, 32);
+    }
+
+    .hierarchy__normal-text() {
+        .m-type__type-size(@normal-text-size, 28);
+    }
+
+    .hierarchy__petite-text() {
+        .m-type__type-size(@petite-text-size, 24);
+    }
+
+    .hierarchy__non-pariel-text() {
+        .m-type__type-size(@non-pariel-text-size, 20);
+    }
+
+    .hierarchy__minion-text() {
+        .m-type__type-size(@minion-text-size, 15);
+    }
+
+    .hierarchy__micro-text() {
+        .m-type__type-size(@micro-text-size, 12);
+    }
+}
+
+.hierarchy__inch-text {
+    #mixed > .hierarchy__inch-text();
+}
+
+.hierarchy__inch-text--long {
+    &:extend(.hierarchy__inch-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__super-canon-text {
+    #mixed > .hierarchy__super-canon-text();
+}
+
+.hierarchy__super-canon-text--long {
+    &:extend(.hierarchy__super-canon-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__canon-text {
+    #mixed > .hierarchy__canon-text();
+}
+
+.hierarchy__canon-text--long {
+    &:extend(.hierarchy__canon-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__meridian-text {
+    #mixed > .hierarchy__meridian-text();
+}
+
+.hierarchy__meridian-text--long {
+    &:extend(.hierarchy__meridian-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__paragon-text {
+    #mixed > .hierarchy__paragon-text();
+}
+
+.hierarchy__paragon-text--long {
+    &:extend(.hierarchy__paragon-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__tertia-text {
+    #mixed > .hierarchy__tertia-text();
+}
+
+.hierarchy__tertia-text--long {
+    &:extend(.hierarchy__tertia-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__columbian-text {
+    #mixed > .hierarchy__columbian-text();
+}
+
+.hierarchy__columbian-text--long {
+    &:extend(.hierarchy__columbian-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__primer-text {
+    #mixed > .hierarchy__primer-text();
+}
+
+.hierarchy__primer-text--long {
+    &:extend(.hierarchy__primer-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__normal-text {
+    #mixed > .hierarchy__normal-text();
+}
+
+.hierarchy__normal-text--long {
+    &:extend(.hierarchy__normal-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__petite-text {
+    #mixed > .hierarchy__petite-text();
+}
+
+.hierarchy__petite-text--long {
+    &:extend(.hierarchy__petite-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__non-pariel-text {
+    #mixed > .hierarchy__non-pariel-text();
+}
+
+.hierarchy__non-pariel-text--long {
+    &:extend(.hierarchy__non-pariel-text);
+    &:extend(.hierarchy__long-text);
+}
+
+.hierarchy__minion-text {
+    #mixed > .hierarchy__minion-text();
+}
+
+.hierarchy__minion-text--long {
+    &:extend(.hierarchy__minion-text);
+    &:extend(.hierarchy__long-text);
+}
+
+
+.hierarchy__micro-text {
+    #mixed > .hierarchy__micro-text();
+}
+
+.hierarchy__micro-text--long {
+    &:extend(.hierarchy__micro-text);
+    &:extend(.hierarchy__long-text);
+}
+
