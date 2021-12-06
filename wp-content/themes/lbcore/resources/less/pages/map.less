@@ -74,6 +74,11 @@
         top: @18px;
     }
 
+    @media @small-screens-max {
+        &:focus {
+            outline: none; // color still changes.
+        }
+    }
 }
 
 .map__scroll-overlay {
