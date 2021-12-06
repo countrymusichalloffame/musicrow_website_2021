@@ -95,8 +95,9 @@ export class Map {
 
         // disable scroll
         map.scrollZoom.disable(); 
-        if (this.config.bpSmall.matches) {
+        if (this.config.bpMedium.matches) {
             map.dragPan.disable();
+            map.touchZoomRotate.disable();
         }
         
         map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
@@ -106,7 +107,7 @@ export class Map {
 
             // create a HTML element for each marker and popup
             const markerContent = document.createElement('div');
-            markerContent.className = 'map__marker map__marker--locations is-active-layer theme--' + properties.type;
+            markerContent.className = 'map__marker map__marker--locations is-active-layer theme--' + properties.theme;
             markerContent.innerHTML = properties.sort;
             markerContent.dataset.id = properties.id;
             markerContent.dataset.lngLat = geometry.coordinates;
@@ -116,7 +117,7 @@ export class Map {
             const popup = new mapboxgl.Popup( 
                 { 
                     offset: 20, 
-                    className: 'map__popup theme--' + properties.type,
+                    className: 'map__popup theme--' + properties.theme,
                     closeButton: false,
                     focusAfterOpen: false
                 }) 

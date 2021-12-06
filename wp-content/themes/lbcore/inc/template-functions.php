@@ -229,12 +229,12 @@ function get_permalink_blocks($acf)
 function get_building_theme_color($buildingType) {
 
 	$themes = get_field('building_theme', 'option');
-
-	$buildingTheme = array_filter($themes, function($key) {
-		return $key==$buildingType;
-	}, ARRAY_FILTER_USE_KEY);
-
-	$themeColor = !empty($buildingTheme[0]['color_theme']) ? $buildingTheme[0]['color_theme'] : 'default';
 	
-	return $themeColor;
+	foreach($themes as $theme) {
+		if ($theme['building_type']['value'] == $buildingType) {
+			return $theme['color_theme'];
+		}
+	}
+
+	return 'default';
 }

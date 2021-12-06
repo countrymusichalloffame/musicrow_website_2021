@@ -46,6 +46,7 @@ function lbcore_mapbox_shape_location_data()
         $locations[] = array(
             'id' => $id,
             'type' => $details['building_type']['value'],
+            'theme' => get_building_theme_color($details['building_type']['value']),
             'longitude' => number_format($details['location']['long'], 7),
             'latitude' => number_format($details['location']['lat'], 7),
             'name' => $name,
@@ -79,6 +80,7 @@ function lbcore_mapbox_shape_location_data()
                 'properties' => array(
                     'id' => $location['id'],
                     'type' => $location['type'],
+                    'theme' => $location['theme'],
                     'sort' => $i+1,
                     // 'icon' => 'location-' . strval($i+1),
                     // 'icon-active' => 'location-' . strval($i+1) . '-active',
@@ -106,6 +108,7 @@ function lbcore_mapbox_shape_location_data()
                 'sort_location' => $i,
                 'image' => $location['image'],
                 'type' => $location['type'],
+                'theme' => $location['theme'],
                 'coords' => $location['longitude'] . ',' . $location['latitude']
             );
         };
