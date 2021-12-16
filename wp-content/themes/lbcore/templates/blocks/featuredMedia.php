@@ -16,11 +16,12 @@
             $videoCaption = !empty($videoSource['caption']) ? $videoSource['caption'] : '';
             break;
         case 'then-now':
-            $backgroundImage =  !empty($args['featured_media']['media']['then_image']) ? $args['featured_media']['media']['then_image'] : [];
-            $foregroundImage = !empty($args['featured_media']['media']['now_image']) ? $args['featured_media']['media']['now_image'] : [];
+            $foregroundImage = !empty($args['featured_media']['media']['then_image']) ? $args['featured_media']['media']['then_image'] : [];
+            $thenText = !empty($args['featured_media']['media']['then_text']) ? $args['featured_media']['media']['then_text'] : 'THEN';
+            $backgroundImage = !empty($args['featured_media']['media']['now_image']) ? $args['featured_media']['media']['now_image'] : [];
+            $nowText = !empty($args['featured_media']['media']['now_text']) ? $args['featured_media']['media']['now_text']: 'NOW';
             break;
     }
-
     $nextStory = !empty($args['featured_media']['moving_story_clone']['next_story']) ?  $args['featured_media']['moving_story_clone']['next_story'] : '';
 ?>
 
@@ -79,7 +80,9 @@
                     'comparison',
                     array(
                         'background_image' => $backgroundImage,
+                        'then_text' => $thenText,
                         'foreground_image' => $foregroundImage,
+                        'now_text' => $nowText,
                         'classes' => 'featuredMedia__comparison'
                     )
                 ); 
