@@ -56,7 +56,7 @@
                 </ul>
             </div>
             <div class="footer__cta-small hierarchy__minion-text spacing__mtx">
-                COUNTRY MUSIC HALL OF FAME AND MUSEUM • 222 FIFTH AVENUE SOUTH NASHVILLE, TN 37203 • PHONE: <a href="tel:615-416-2001">615.416.2001</a>
+                COUNTRY MUSIC HALL OF FAME AND MUSEUM • 222 Rep. John Lewis Way South, Nashville, TN 37203 • PHONE: <a href="tel:615-416-2001">615.416.2001</a>
                 &copy;2021 COUNTRY MUSIC HALL OF FAME&reg; AND MUSEUM ALL RIGHTS RESERVED
                 | <a href="https://countrymusichalloffame.org/privacy-policy/" target="_blank">PRIVACY POLICY</a> | <a href="https://countrymusichalloffame.org/terms-of-use/" target="_blank">TERMS OF USE</a>
             </div>
