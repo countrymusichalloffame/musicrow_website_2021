@@ -24,7 +24,7 @@ export class AudioGallery {
                 visibleSlides: 1,
                 isDraggable: true,
                 playPauseButton: false,
-                loop: false,
+                loop: true,
                 progressIndicators: false,
                 responsiveHeight: true
             });

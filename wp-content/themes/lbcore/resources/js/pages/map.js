@@ -16,7 +16,7 @@ export class Map {
         this.config = {
             layers: [],
             mbAccessToken: window.MusicRow.mbAccessToken,
-            defaultZoom: 14, // 16
+            defaultZoom: 15, //14, // 16
             sortDefault: {
                 layers: [],
                 order: [],
@@ -87,7 +87,7 @@ export class Map {
         const map = new mapboxgl.Map({
             container: 'mapbox',
             style: 'mapbox://styles/musicrow/ckrch8tvr0k3a17tq6tc3uy7k',
-            center: window.MusicRow.locations[0].geometry.coordinates, // center on first marker
+            center: window.MusicRow.locations[9].geometry.coordinates, // center on Marker 10
             zoom: this.config.defaultZoom
         });
 

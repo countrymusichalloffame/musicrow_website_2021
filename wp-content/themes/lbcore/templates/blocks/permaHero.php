@@ -18,7 +18,9 @@
             break;
         case 'then-now': 
             $foregroundImage = $args['media']['then_image'];
+            $thenText = !empty($args['media']['then_text']) ? $args['media']['then_text'] : 'THEN';
             $backgroundImage = $args['media']['now_image'];
+            $nowText = !empty($args['media']['now_text']) ? $args['media']['now_text']: 'NOW';
             break;
         case 'video': 
             $videoSource = $args['media']['video'];
@@ -59,7 +61,9 @@
                 'comparison',
                 array(
                     'background_image' => $backgroundImage,
+                    'then_text' => $thenText,
                     'foreground_image' => $foregroundImage,
+                    'now_text' => $nowText,
                     'classes' => 'permaHero__comparison'
                 )
             ); 

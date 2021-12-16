@@ -20,22 +20,8 @@ export class ProfileCarousel {
             visibleSlides: 1,
             isDraggable: true,
             playPauseButton: false,
-            loop: false,
+            loop: true,
             progressIndicators: false,
         })
     }
 }
-
-/*
-export default function () { 
-    ;[].forEach.call(document.querySelectorAll('.js-profile-carousel'), el => {
-        return new Carousel(el, {
-            visibleSlides: 3,
-            isDraggable: true,
-            playPauseButton: false,
-            loop: false,
-            progressIndicators: false,
-        })
-    })
-}
-*/
