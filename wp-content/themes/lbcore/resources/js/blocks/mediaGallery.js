@@ -12,7 +12,7 @@ export default function (parent = document) {
             visibleSlides: 1,
             isDraggable: false,
             playPauseButton: false,
-            loop: false,
+            loop: true,
             progressIndicators: false,
         })
 
