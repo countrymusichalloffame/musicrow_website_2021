@@ -277,15 +277,15 @@ export class Map {
 
                     // y-offset for people popup
                     if (this.config.bpSmall.matches) {
-                        console.log('sm');
+                        //console.log('sm');
                         coords[1] -= 0.0016; // small screens
                     }
                     else if (this.config.bpMedium.matches) {
-                        console.log('med');
+                        //console.log('med');
                         coords[1] -= 0.0032;  // med screens
                     }
                     else {
-                        console.log('lg');
+                        //console.log('lg');
                         coords[1] -= 0.0048; // lg and greater
                     }
                     this.centerMap(map, coords);
