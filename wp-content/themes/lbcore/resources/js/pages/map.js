@@ -277,13 +277,16 @@ export class Map {
 
                     // y-offset for people popup
                     if (this.config.bpSmall.matches) {
+                        //console.log('sm');
                         coords[1] -= 0.0016; // small screens
                     }
                     else if (this.config.bpMedium.matches) {
-                        coords[1] -= 0.0048;  // med screens
+                        //console.log('med');
+                        coords[1] -= 0.0032;  // med screens
                     }
                     else {
-                        coords[1] -= 0.0084; // lg and greater
+                        //console.log('lg');
+                        coords[1] -= 0.0048; // lg and greater
                     }
                     this.centerMap(map, coords);
                     

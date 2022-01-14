@@ -277,16 +277,13 @@
 
     @media @small-screens-max {
         max-width: @120px;
+        flex: 1 0 50%;
     }
 
-    @media @medium-screens-max {
-        flex: 40%;
+    @media @medium-screens-only {
+        flex: 1 0 20%;
         margin: 0;
         padding: 0 @quarter-side;
-    }
-
-    @media @small-screens-max {
-        flex: 1 0 50%;
     }
 }
 
@@ -471,7 +468,7 @@
 .map__card-desc {
     .m-type__type-size(@micro-text-size, 12);
 
-    @media @medium-screens-min {
+    @media @large-screens-min {
         .m-type__type-size(@petite-text-size, 18);
     }
 }

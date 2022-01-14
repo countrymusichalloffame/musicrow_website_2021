@@ -12,7 +12,11 @@
 <div class="video js-video">
 
     <video class="video__element js-video-element <?=$classes?>" 
-           controls preload="metadata" tabIndex="0">
+           controls
+           controlsList="nodownload" 
+           preload="metadata" 
+           tabIndex="0"
+    >
         <source src="<?= $videoUrl; ?>" type="video/mp4">
         Sorry, your browser doesn't support embedded videos.
     </video>
