@@ -22,7 +22,7 @@ function initDynamicResponsiveImages(
 function disableRightClick() {
     // diable right click on images only.
     document.addEventListener("contextmenu", function(e) {
-        console.log('event detail', e.target.localName);
+        //console.log('event detail', e.target.localName);
         if (e.target.localName == 'img') {
             e.preventDefault();
         }
