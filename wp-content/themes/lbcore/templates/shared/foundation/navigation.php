@@ -47,6 +47,9 @@
     //$logoURL = 'https://wpcore.lb2.lifeblue.us/wp-content/uploads/2021/07/motif.png'; 
 
     $homeURL = get_home_url();
+
+    // get homepage header
+    $title = get_field('home_header', '49')['heading'] ?? 'Historic Music Row: Nashville\'s Creative Crossroads';
 ?>
 
 <div class="navigation">
@@ -54,7 +57,7 @@
         <div class="navigation__logo-container">
             <a class="navigation__logo-link flex flex__ai--center styles__sequel" href="/" rel="home">
                 <img class="navigation__logo" src="https://cmhof.imgix.net/content/uploads/2019/04/11072205/cmhof-logo-round.png" alt="Music Row Logo.">  
-                <span class="navigation__logo-name">The Music Row Experience</span>
+                <span class="navigation__logo-name"><?=$title?></span>
             </a>
         </div>
         <div class="slideshow__controls">
