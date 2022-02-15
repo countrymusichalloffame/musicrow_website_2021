@@ -24,6 +24,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 <div id="page" class="site">
 	
 	<?php if(isset($_GET['grid']) && $_GET['grid'] == 'true'): ?>
