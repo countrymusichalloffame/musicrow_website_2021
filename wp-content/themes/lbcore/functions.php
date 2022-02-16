@@ -153,6 +153,10 @@ function lbcore_js_vars() { ?>
 <?php }
 add_action ( 'wp_head', 'lbcore_js_vars' );
 
+/**
+ * Google Tag Manager
+ */
+require get_template_directory() . '/inc/google-tag-manager.php';
 
 /**
  * Implement the Custom Header feature.
